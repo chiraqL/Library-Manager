@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+#include "system.h"
+
 const int MAX_BOOKS_ISSUED = 5;
 const int MAX_DUE_DAY = 30;
 
