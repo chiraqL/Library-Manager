@@ -1,5 +1,5 @@
 #pragma once
-#include"allheader.h"
+#include "Headers.h"
 class book {
 public:
 	
@@ -9,7 +9,7 @@ public:
 	int quantity;
 	int n;
 public:
-	float price;
+	int price;
 	char book_name[50];
 	void display_book();
 	void add_book();

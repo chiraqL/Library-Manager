@@ -149,17 +149,17 @@
     <ClCompile Include="tools.cpp" />
     <ClCompile Include="password.cpp" />
     <ClCompile Include="student.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="algorithm.h" />
     <ClInclude Include="graphics.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="menu.h" />
-    <ClInclude Include="allheader.h" />
+    <ClInclude Include="Headers.h" />
     <ClInclude Include="book.h" />
     <ClInclude Include="file.h" />
-    <ClInclude Include="splash screen.h" />
+    <ClInclude Include="splashscreen.h" />
     <ClInclude Include="tools.h" />
     <ClInclude Include="password.h" />
     <ClInclude Include="student.h" />

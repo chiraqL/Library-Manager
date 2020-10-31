@@ -1,5 +1,5 @@
 #pragma once
-#include"allheader.h"
+#include "Headers.h"
 class student {
 private:
 	char std_name[20];

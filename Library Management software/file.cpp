@@ -1,4 +1,4 @@
-#include"allheader.h"
+#include "Headers.h"
 fstream fp, fp1, fp2;
 student stud;
 book bk;
@@ -347,7 +347,7 @@ void file::deposit_book() {
 }
 
 
-void file::list_book_asc(int algo, bool order)
+void file::list_book(int algo, bool order, bool type, int sortby)
 {
 	fp.open("book.txt", ios::in | ios::out);
 	int temp = j.bookcounter();
@@ -360,25 +360,25 @@ void file::list_book_asc(int algo, bool order)
 	switch (algo)
 	{
 	case 1:
-		time_taken = al.list_book_asc_bubblesort(itemb, temp,order);
+		time_taken = al.list_book_bubblesort(itemb, temp, order, type, sortby);
 		break;
 	case 2:
-		time_taken = al.list_book_asc_selectionsort(itemb, temp,order);
+		time_taken = al.list_book_selectionsort(itemb, temp,order, type, sortby);
 		break;
 	case 3:
-		time_taken = al.list_book_asc_insertionsort(itemb, temp,order);
+		time_taken = al.list_book_insertionsort(itemb, temp,order, type, sortby);
 		break;
 	case 4:
-		time_taken = al.list_book_asc_mergesort(itemb, temp, order);
+		time_taken = al.list_book_mergesort(itemb, temp, order, type, sortby);
 		break;
 	case 5:
-		time_taken = al.list_book_asc_heapsort(itemb, temp,order);
+		time_taken = al.list_book_heapsort(itemb, temp,order, type, sortby);
 		break;
 	case 6:
-		time_taken = al.list_book_asc_quicksort(itemb, temp,order);
+		time_taken = al.list_book_quicksort(itemb, temp,order, type, sortby);
 		break;
 	case 7:
-		time_taken = al.list_book_asc_bogosort(itemb, temp,order);
+		time_taken = al.list_book_bogosort(itemb, temp,order, type, sortby);
 		break;
 	default:
 		break;
@@ -393,11 +393,12 @@ void file::list_book_asc(int algo, bool order)
 void file::binarysearch_book() {
 	gp.stdbox();
 	j.setxy(47, 6);
+	cin.ignore();
 	cout << "BOOK INFORMATION" << endl;
 	j.setxy(47, 8);
 	cout << "Enter book  name";
 	j.setxy(47, 9);
-	cin >> x;
+	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
 	gp.stdbox();

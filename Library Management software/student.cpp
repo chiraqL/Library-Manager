@@ -1,4 +1,4 @@
-#include"allheader.h"
+#include "Headers.h"
 tools f;
 void student::add_student() {
 	

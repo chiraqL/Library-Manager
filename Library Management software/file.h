@@ -1,5 +1,5 @@
 #pragma once
-#include"allheader.h"
+#include "Headers.h"
 class file {
 private:
 	char roll[20];
@@ -25,7 +25,7 @@ public:
 	void delete_book();
 	void sort_std();
 
-	void list_book_asc(int,bool);
+	void list_book(int, bool, bool, int);
 
 	void issue_book();
 	void deposit_book();

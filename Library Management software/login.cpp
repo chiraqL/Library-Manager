@@ -1,9 +1,10 @@
-#include"allheader.h"
+#include "Headers.h"
 studentmenu st;
 librarianpassword lib;
 adminpassword ad;
 graphics gph;
 tools g;
+
 void login::loginscreen() {
 	system("CLS");
 	gph.footer();
@@ -32,7 +33,7 @@ void login::loginscreen() {
 		lib.enter_pass();
 		break;
 	}
-	case 3:{
+	case 3: {
 		system("CLS");
 		ad.enter_pass();
 		break;
@@ -41,8 +42,9 @@ void login::loginscreen() {
 	{
 		//credits function
 		_getch();
-		return ;
-
+		exit(0);
 	}
-}
+	default:
+		break;
+	}
 }

@@ -1,4 +1,4 @@
-#include"allheader.h"
+#include "Headers.h"
 file f1;
 adminpassword a;
 librarianpassword lp;
@@ -22,15 +22,23 @@ void studentmenu::menu() {
 	switch (n) {
 	case 1: {
 		system("CLS");
+		std::cout << "Sort By::\n1.Price\n2.Book name\n3.Author name\n4.Quantity\n5.Publisher\n6.ee\n7.ee\n::";
+		int sortby;
+		cin >> sortby;
+
+		system("CLS");
 		std::cout << "0.Low To High\n1.High To Low\n::";
 		int order;
 		cin >> order;
+
 		system("CLS");
 		std::cout << "1.Bubble Sort\n2.Selection Sort\n3.Insertion Sort\n4.Merge Sort\n5.Heap Sort\n6.Quick Sort\n7.Bogo Sort\n::";
 		int sorting_algo;
 		cin >> sorting_algo;
-		if (order <=1 && sorting_algo < 8)
-			f1.list_book_asc(sorting_algo,order);
+
+		bool type = (sortby == 1 || sortby == 4) ? 1 : 0;
+		if (order <= 1 && sorting_algo < 8 && sortby>0)
+			f1.list_book(sorting_algo, order, type, sortby);//0 for string;1 for sortby
 		else
 			std::cout << "Error";
 		break;

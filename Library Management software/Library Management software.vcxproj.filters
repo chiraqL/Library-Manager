@@ -9,51 +9,47 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Launch">
+      <UniqueIdentifier>{304b78df-0e0e-47c4-b8ce-34442a131c2e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="book.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="book.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="student.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="algorithm.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="file.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="password.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tools.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="splashscreen.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="login.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="graphics.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="algorithm.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="login.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="password.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="splashscreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="student.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Launch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="book.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="allheader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="student.h">
@@ -62,16 +58,10 @@
     <ClInclude Include="file.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="password.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tools.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="splash screen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="login.h">
@@ -82,6 +72,15 @@
     </ClInclude>
     <ClInclude Include="algorithm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="splashscreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="password.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers.h">
+      <Filter>Launch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

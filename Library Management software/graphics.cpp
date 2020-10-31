@@ -1,4 +1,4 @@
-#include"allheader.h"
+#include "Headers.h"
 tools tl;
 login lo;
 void graphics::stdbox() {
@@ -69,7 +69,6 @@ void graphics::tablestd() {
 }
 void graphics::projectsubmission() {
 	system("color E4");
-	//tl.Color(4);
 	tl.setxy(49, 1);
 	cout << "DSA PROJECT WORK IN C++";
 	tl.setxy(60, 4);
@@ -101,6 +100,7 @@ void graphics::projectsubmission() {
 	tl.setxy(73, 10);
 	cout << "ARPAN|BIBEK|CHIRAQ";
 	_getch();
+
 	system("CLS");
 	lo.loginscreen();
 }
