@@ -103,7 +103,7 @@ void file::search_std() {
 	int f = 0;
 	system("CLS");
 	gp.stdbox();
-	fp.open("student.txt", ios::in);
+	fp.open("student.txt", ios::in );
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)))
 	{
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
@@ -125,22 +125,22 @@ void file::modify_book() {
 	cout << "MODIFY BOOK" << endl;
 	j.setxy(47, 8);
 	cout << "Enter the Book number" << endl;
-	char x[20];
 	j.setxy(47, 9);
 	cin >> x;
 	system("CLS");
 	gp.stdbox();
-	fp.open("book.txt", ios::in | ios::out | ios::ate);
+	fp.open("book.txt", ios::in |ios::out);
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		if (_strcmpi(bk.returnbook_no(), x) == 0) {
 			bk.display_book();
-			cout << "Enter the new detsils of book" << endl;
+			cout << "Enter the new details of book" << endl;
 			bk.modifybook();
 			int pos = (-1 )* sizeof(bk);
 			fp.seekp(pos, ios::cur);
 			fp.write(reinterpret_cast<char*>(&bk), sizeof(book));
 			cout << "new details has been updated" << endl;
 			f = 1;
+			break;
 		}
 	}
 	fp.close();
@@ -205,7 +205,7 @@ void file::delete_std()
 		fp.close();
 		fp2.close();
 		remove("student.txt");
-		rename("Temp.txt", "student.txt");
+		(void )rename("Temp.txt", "student.txt");
 		if (f == 1) {
 			j.setxy(47, 20);
 
@@ -241,17 +241,17 @@ void file::delete_book() {
 fp.close();
 fp2.close();
 remove("book.txt");
-rename("Temp.txt", "book.txt");
+(void)rename("Temp.txt", "book.txt");
 j.setxy(47, 20);
 cout << "Record Deleted has been deleted";
-_getch();
+(void)_getch();
 }
 
 void file::issue_book() {
 	system("CLS");
 	gp.stdbox();
 	j.setxy(47, 8);
-	cout << "Book iSssue" << endl;
+	cout << "Book issue" << endl;
 	j.setxy(47, 10);
 	cout << "Enter Roll number" << endl;
 	j.setxy(47, 11);
@@ -279,9 +279,11 @@ void file::issue_book() {
 						fp.seekg(0);
 						fp1.clear();
 						fp1.seekg(0);
-						break;
+						
 						j.setxy(47, 20);
 						cout << "BOOK ISSSUED SUCESSFULLY" << endl;
+						
+						break;
 					}
 				}
 				if (flag == 0) {
@@ -334,9 +336,9 @@ void file::deposit_book() {
 						fp.seekg(0);
 						fp1.clear();
 						fp1.seekg(0);
-						break;
 						j.setxy(47, 20);
 						cout << "book deposited" << endl;
+						break;
 					}
 				}
 				if (flag == 0) {

@@ -55,3 +55,14 @@ int tools::studentcounter() {
 	return count;
 }
 
+void tools::fontsize(int a, int b) {
+	CONSOLE_FONT_INFOEX cfi;
+	cfi.cbSize = sizeof(cfi);
+	cfi.nFont = 0;
+	cfi.dwFontSize.X = a;                   // Width of each character in the font
+	cfi.dwFontSize.Y = b;                  // Height
+	cfi.FontFamily =4;
+	cfi.FontWeight = FW_NORMAL;
+	wcscpy_s(cfi.FaceName, L"Algerian"); // Choose your font
+	SetCurrentConsoleFontEx(GetStdHandle(STD_OUTPUT_HANDLE), FALSE, &cfi);
+}
