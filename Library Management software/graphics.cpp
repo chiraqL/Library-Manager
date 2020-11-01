@@ -12,15 +12,27 @@ void graphics::stdbox() {
 	tl.displayhorizontal(30, 219);
 	tl.displayvertical(74, 3, 21, 219);
 }
+void graphics::miscbox(){
+	tl.setxy(40, 3);
+	tl.displayhorizontal(40, 219);
+	tl.setxy(40, 21);
+	tl.displayhorizontal(40, 219);
+	tl.displayvertical(40, 3, 21, 219);
+	tl.setxy(40, 18);
+	tl.displayhorizontal(40, 219);
+	tl.displayvertical(79, 3, 21, 219);
+
+
+}
 void graphics::adminbox() {
-	tl.setxy(45, 2);
-	tl.displayhorizontal(30, 219);
-	tl.setxy(45, 25);
-	tl.displayhorizontal(30, 219);
-	tl.displayvertical(45, 2, 25, 219);
-	tl.setxy(45, 22);
-	tl.displayhorizontal(30, 219);
-	tl.displayvertical(74, 2, 25, 219);
+	tl.setxy(40, 2);
+	tl.displayhorizontal(40, 219);
+	tl.setxy(40, 25);
+	tl.displayhorizontal(40, 219);
+	tl.displayvertical(40, 2, 25, 219);
+	tl.setxy(40, 22);
+	tl.displayhorizontal(40, 219);
+	tl.displayvertical(79, 2, 25, 219);
 }
 void graphics::header() {
 	tl.setxy(56, 1);
@@ -49,12 +61,15 @@ void graphics::tablebook() {
 	tl.displayhorizontal(120, 220);
 	tl.setxy(0, 5);
 	tl.displayhorizontal(120, 220);
+	tl.setxy(0, 29);
+	tl.displayhorizontal(120, 220);
 	tl.displayvertical(0, 4, 29, 219);
 	tl.displayvertical(16, 4, 29, 219);
 	tl.displayvertical(48, 4, 29, 219);
 	tl.displayvertical(72, 4, 29, 219);
 	tl.displayvertical(96, 4, 29, 219);
-	tl.displayvertical(119, 4, 29, 219);
+	tl.displayvertical(118, 4, 29, 219);
+	
 }
 
 void graphics::tablestd() {
@@ -62,10 +77,12 @@ void graphics::tablestd() {
 	tl.displayhorizontal(120, 220);
 	tl.setxy(0, 5);
 	tl.displayhorizontal(120, 220);
+	tl.setxy(0, 29);
+	tl.displayhorizontal(120, 220);
 	tl.displayvertical(0, 4, 29, 219);
 	tl.displayvertical(40, 4, 29, 219);
 	tl.displayvertical(80, 4, 29, 219);
-	tl.displayvertical(119, 4, 29, 219);
+	tl.displayvertical(118, 4, 29, 219);
 }
 void graphics::projectsubmission() {
 	system("color E4");

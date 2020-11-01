@@ -22,18 +22,58 @@ void studentmenu::menu() {
 	switch (n) {
 	case 1: {
 		system("CLS");
-		std::cout << "Sort By::\n1.Price\n2.Book name\n3.Author name\n4.Quantity\n5.Publisher\n6.ee\n7.ee\n::";
+		gra.stdbox();
+		to.setxy(47, 5);
+		cout << "Sort By:";
+		to.setxy(47, 6);
+		cout << "1.Price";
+		to.setxy(47, 7);
+		cout << "2.Book Name";
+		to.setxy(47, 8);
+		cout << "3.Author Name";
+		to.setxy(47, 9);
+		cout << "4.Quantity";
+		to.setxy(47, 10);
+		cout << "5.Publisher";
+		to.setxy(47, 19);
+		cout << "Choose option" << endl;
+		
 		int sortby;
+		to.setxy(47, 20);
 		cin >> sortby;
 
 		system("CLS");
-		std::cout << "0.Low To High\n1.High To Low\n::";
+		gra.passwordbox();
+		to.setxy(47, 8);
+		cout << "0.Ascending Order";
+		to.setxy(47, 9);
+		cout << "1.Decending Order";
+		to.setxy(47, 10);
 		int order;
 		cin >> order;
 
 		system("CLS");
-		std::cout << "1.Bubble Sort\n2.Selection Sort\n3.Insertion Sort\n4.Merge Sort\n5.Heap Sort\n6.Quick Sort\n7.Bogo Sort\n::";
+		gra.stdbox();
+		to.setxy(47, 5);
+		cout << "Select The type of sort";
+		to.setxy(47, 6);
+		cout << "1.Bubble Sort";
+		to.setxy(47, 7);
+		cout << "2.Selection Sort";
+		to.setxy(47, 8);
+		cout << "3.Insertion Sort";
+		to.setxy(47, 9);
+		cout << "4.Merge Sort";
+		to.setxy(47, 10);
+		cout << "5.Heap Sort";
+		to.setxy(47, 11);
+		cout << "6.Quick sort";
+		to.setxy(47, 12);
+		cout << "7.Bogo Sort";
+		to.setxy(47, 19);
+		cout << "Choose option" << endl;
 		int sorting_algo;
+		to.setxy(47, 20);
 		cin >> sorting_algo;
 
 		bool type = (sortby == 1 || sortby == 4) ? 1 : 0;
