@@ -27,8 +27,8 @@ void graphics::header() {
 	cout << "LIBRARY MANAGEMENT SOFTWARE";
 }
 void graphics::footer() {
-	tl.setxy(47, 28);
-	cout  << "copyright-2020,ARPAN|BIBEK|CHIRAQ";
+	tl.setxy(40, 28);
+	cout  << "Copyright 2020 -- ARPAN | BIBEK | CHIRAG";
 
 }
 void graphics::credits() {
@@ -98,7 +98,7 @@ void graphics::projectsubmission() {
 	tl.setxy(73, 9);
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
-	cout << "ARPAN|BIBEK|CHIRAQ";
+	cout << "ARPAN | BIBEK | CHIRAG";
 	_getch();
 
 	system("CLS");
