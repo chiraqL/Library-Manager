@@ -4,13 +4,13 @@ graphics gl;
 
 void loading::load() {
 	//Loading Graphikshy
-	t.setxy(1, 5);
+	t.setxy(33, 5);
 	t.Color(2);
 	cout << "Please wait! Program is managing in your computer system";
 	t.setxy(0, 6);
-	t.displayhorizontal(146, 1);
+	t.displayhorizontal(120, 220);
 	t.setxy(0, 25);
-	t.displayhorizontal(146, 1);
+	t.displayhorizontal(120, 220);
 	t.setxy(45, 11);
 	cout << "Please wait few seconds" << endl;
 	t.setxy(50, 12);
@@ -27,7 +27,7 @@ void loading::load() {
 		cout << loadP << "%";
 		++loadP;
 	}
-	t.setxy(33, 22);
+	t.setxy(35, 22);
 	t.Color(7);
 	cout << "Managing and installing is finished.Press any key" << endl;
 	(void)_getch();

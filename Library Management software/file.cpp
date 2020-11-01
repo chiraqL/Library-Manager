@@ -81,7 +81,9 @@ void file::search_book() {
 	fp.open("book.txt", ios::in);
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		if (_strcmpi(bk.returnbook_no(), x) == 0) {
+			
 			bk.display_book();
+			gp.stdbox();
 			f = 1;
 		}
 
@@ -107,7 +109,9 @@ void file::search_std() {
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)))
 	{
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
+			
 			stud.display_student_sts();
+			gp.stdbox();
 			f = 1;
 		}
 	}
@@ -133,12 +137,17 @@ void file::modify_book() {
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		if (_strcmpi(bk.returnbook_no(), x) == 0) {
 			bk.display_book();
-			cout << "Enter the new details of book" << endl;
+			j.setxy(47, 19);
+			cout << "Enter new details " << endl;
+			_getch();
+			system("CLS");
+			gp.stdbox();
 			bk.modifybook();
 			int pos = (-1 )* sizeof(bk);
 			fp.seekp(pos, ios::cur);
 			fp.write(reinterpret_cast<char*>(&bk), sizeof(book));
-			cout << "new details has been updated" << endl;
+			j.setxy(47, 19);
+			cout << "new details updated" << endl;
 			f = 1;
 			break;
 		}
@@ -165,12 +174,17 @@ void file::modify_std() {
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
 			stud.display_student_sts();
-			cout << "Enter the new detsils of students::" << endl;
+			j.setxy(47, 19);
+			cout << "Enter new details" << endl;
+			_getch();
+			system("CLS");
+			gp.stdbox();
 			stud.modify_student();
 			int pos = (-1 )* sizeof(stud);
 			fp.seekp(pos, ios::cur);
 			fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
-			cout << "new details has been updated" << endl;
+			j.setxy(47, 19);
+			cout << "new details updated" << endl;
 			f = 1;
 			break;
 		}
@@ -209,7 +223,7 @@ void file::delete_std()
 		if (f == 1) {
 			j.setxy(47, 20);
 
-			cout << "Record has been deleted";
+			cout << "Record deleted";
 		}
 		else {
 			j.setxy(47, 20);
@@ -243,7 +257,7 @@ fp2.close();
 remove("book.txt");
 (void)rename("Temp.txt", "book.txt");
 j.setxy(47, 20);
-cout << "Record Deleted has been deleted";
+cout << "Record Deleted";
 (void)_getch();
 }
 
@@ -256,6 +270,11 @@ void file::issue_book() {
 	cout << "Enter Roll number" << endl;
 	j.setxy(47, 11);
 	cin >> roll;
+	system("CLS");
+	gp.miscbox();
+	j.setxy(47, 8);
+	cout << "Book issue" << endl;
+	j.setxy(47, 10);
 	fp.open("student.txt", ios::in | ios::out);
 	fp1.open("book.txt", ios::in | ios::out);
 	int found = 0;
@@ -292,10 +311,10 @@ void file::issue_book() {
 					j.setxy(47, 20);
 					cout << "No book exist" << endl;
 				}
-				else {
+				/*else {
 					j.setxy(47, 20);
 					cout << "Not returned book" << endl;
-				}
+				}*/
 			}
 
 		}
@@ -320,6 +339,11 @@ void file::deposit_book() {
 	cout << "Enter student roll  no" << endl;
 	j.setxy(47, 11);
 	cin >> roll;
+	system("CLS");
+	gp.miscbox();
+	j.setxy(47, 8);
+	cout << "BOOK DEPOSIT" << endl;
+	j.setxy(47, 10);
 	fp.open("student.txt", ios::in | ios::out);
 	fp1.open("book.txt", ios::in | ios::out);
 	int found = 0;
@@ -349,10 +373,10 @@ void file::deposit_book() {
 					j.setxy(47, 20);
 					cout << "Book doesnot exist" << endl;
 				}
-				else {
+				/*else {
 					j.setxy(47, 20);
 					cout << "No book issued" << endl;
-				}
+				}*/
 			}
 		}
 
@@ -422,7 +446,8 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 	for (int i = 0; i < temp; i++)
 		itemb[i].blist();
 	j.setxy(90, 2);
-	std::cout << "Time taken::" <<setprecision(10)<< time_taken *10e-9<<setw(2)<<" seconds"<< std::endl;
+	cout << fixed;
+	std::cout << "Time taken::" <<(float) time_taken *10e-9<<setw(2)<<" seconds"<< std::endl;
 	gp.tablebook();
 	_getch();
 	fp.close();

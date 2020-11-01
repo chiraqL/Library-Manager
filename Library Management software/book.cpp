@@ -1,18 +1,20 @@
 #include "Headers.h"
 tools u;
 void book::display_book() {
+
 	u.setxy(47, 6);
-	cout << "Book number" <<setw(2)<< book_no << endl;
+	cout << "Book number:" <<" "<< book_no << endl;
 	u.setxy(47, 8);
-	cout << "Name" <<  setw(2)<<book_name  << endl;
+	cout << "Name:" <<  " "<<book_name<< endl;
 	u.setxy(47, 10);
-	cout << "Author Name " << setw(2) << authorname  << endl;
+	cout << "Author Name:" << " " << authorname<< endl;
 	u.setxy(47, 12);
-	cout << "Publication" << setw(2) << publication_name << setw(2) << endl;
+	cout << "Publication:" << " " << publication_name <<  endl;
 	u.setxy(47, 14);
-	cout << "Quantity " << setw(2) << quantity << setw(2) << endl;
+	cout << "Quantity:" << " " << quantity << endl;
 	u.setxy(47, 16);
-	cout << "Price" << setw(2) << price << setw(2) << endl;
+	cout << "Price:" << " " << price << endl;
+
 }
 
 void book::add_book() {
@@ -50,6 +52,7 @@ void book::add_book() {
 }
 
 void book::modifybook() {
+	
 	u.setxy(47, 6);
 	cout << "Modify Book's Name: " << setw(2) << endl;
 		u.setxy(47, 8);

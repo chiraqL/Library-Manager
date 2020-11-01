@@ -39,7 +39,9 @@ void graphics::header() {
 	cout << "LIBRARY MANAGEMENT SOFTWARE";
 }
 void graphics::footer() {
-	tl.setxy(47, 28);
+	tl.setxy(47, 27);
+	cout << "LIBRARY MANAGEMENT SOFTWARE";
+	tl.setxy(44, 28);
 	cout  << "copyright-2020,ARPAN|BIBEK|CHIRAQ";
 
 }
@@ -106,8 +108,8 @@ void graphics::projectsubmission() {
 		tl.setxy(65, p);
 		cout << char(254);
 	}
-	tl.setxy(47, 23);
-	cout << "LIBRARY MANAGEMENT SOFTWARE";
+	tl.setxy(54, 22);
+	cout << "E-Library LMS";
 	tl.setxy(35, 9);
 	cout << "SUBMITTED TO:" ;
 	tl.setxy(35, 10);	
@@ -115,7 +117,7 @@ void graphics::projectsubmission() {
 	tl.setxy(73, 9);
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
-	cout << "ARPAN|BIBEK|CHIRAQ";
+	cout << "ARPAN|BIBEK|CHIRAG";
 	_getch();
 
 	system("CLS");
