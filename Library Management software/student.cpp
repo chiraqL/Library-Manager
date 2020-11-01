@@ -46,6 +46,7 @@ void student::modify_student() {
 
 void student::slist() {
 	cout << endl;
+	cout << endl;
 	cout  <<"\t"<< roll << setw(40) << std_name << setw(40) << token;
 }
 char* student::returnstudent_roll(){

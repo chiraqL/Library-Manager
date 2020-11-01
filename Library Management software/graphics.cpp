@@ -50,7 +50,7 @@ void graphics::tablebook() {
 	tl.setxy(0, 5);
 	tl.displayhorizontal(120, 220);
 	tl.displayvertical(0, 4, 29, 219);
-	tl.displayvertical(24, 4, 29, 219);
+	tl.displayvertical(16, 4, 29, 219);
 	tl.displayvertical(48, 4, 29, 219);
 	tl.displayvertical(72, 4, 29, 219);
 	tl.displayvertical(96, 4, 29, 219);

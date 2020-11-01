@@ -260,7 +260,7 @@ void file::issue_book() {
 			found = 1;
 			if (stud.returntoken() == 0) {
 				j.setxy(47, 12);
-				cout << "Enter the boook number" << endl;
+				cout << "Enter the book number" << endl;
 				j.setxy(47, 14);
 				cin >> book_num;
 				while (fp1.read(reinterpret_cast<char*>(&bk), sizeof(book)) && flag == 0) {
@@ -272,6 +272,11 @@ void file::issue_book() {
 						int pos = (-1) * sizeof(student);
 						fp.seekp(pos, ios::cur);
 						fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
+						fp.clear();
+						fp.seekg(0);
+						fp1.clear();
+						fp1.seekg(0);
+						break;
 						j.setxy(47, 20);
 						cout << "BOOK ISSSUED SUCESSFULLY" << endl;
 					}
@@ -280,19 +285,20 @@ void file::issue_book() {
 					j.setxy(47, 20);
 					cout << "No book exist" << endl;
 				}
-				else {
+				/*else {
 					j.setxy(47, 20);
 					cout << "Not returned book" << endl;
-				}
+				}*/
 			}
 
 		}
 
 
 	}
-	if (found == 0)
+	if (found == 0) {
 		j.setxy(47, 20);
 		cout << "Student record not exist";
+	}
 	fp.close();
 	fp1.close();
 	_getch();
@@ -321,6 +327,11 @@ void file::deposit_book() {
 						int pos = -1 * sizeof(stud);
 						fp.seekp(pos, ios::cur);
 						fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
+						fp.clear();
+						fp.seekg(0);
+						fp1.clear();
+						fp1.seekg(0);
+						break;
 						j.setxy(47, 20);
 						cout << "book deposited" << endl;
 					}
@@ -329,10 +340,10 @@ void file::deposit_book() {
 					j.setxy(47, 20);
 					cout << "Book doesnot exist" << endl;
 				}
-				else {
+				/*else {
 					j.setxy(47, 20);
 					cout << "No book issued" << endl;
-				}
+				}*/
 			}
 		}
 

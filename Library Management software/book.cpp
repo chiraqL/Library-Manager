@@ -66,7 +66,7 @@ void book::modifybook() {
 
 void book::blist() {
 	cout << endl;
-	cout  <<setw(4)<< book_no << setw(28) << book_name << setw(28) << authorname << setw(28) << quantity << setw(28) << price;
+	cout  <<setw(6)<< book_no << setw(32) << book_name << setw(21) << authorname << setw(25) << quantity << setw(25) << price;
 }
 char* book::returnbook_no() {
 	return book_no;
