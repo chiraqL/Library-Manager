@@ -39,6 +39,7 @@ void graphics::header() {
 	cout << "LIBRARY MANAGEMENT SOFTWARE";
 }
 void graphics::footer() {
+
 	tl.setxy(47, 27);
 	cout << "LIBRARY MANAGEMENT SOFTWARE";
 	tl.setxy(44, 28);
@@ -117,7 +118,9 @@ void graphics::projectsubmission() {
 	tl.setxy(73, 9);
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
+
 	cout << "ARPAN|BIBEK|CHIRAG";
+
 	_getch();
 
 	system("CLS");
