@@ -161,15 +161,18 @@ void file::modify_std() {
 	cin >> x;
 	system("cls");
 	gp.stdbox();
-	fp.open("student.txt", ios::in | ios::out | ios::ate);
+	fp.open("student.txt", ios::in | ios::out );
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
 			stud.display_student_sts();
+			cout << "Enter the new detsils of students::" << endl;
+			stud.modify_student();
 			int pos = (-1 )* sizeof(stud);
 			fp.seekp(pos, ios::cur);
 			fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
 			cout << "new details has been updated" << endl;
 			f = 1;
+			break;
 		}
 	}
 	fp.close();
