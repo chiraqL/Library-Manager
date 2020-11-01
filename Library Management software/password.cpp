@@ -67,7 +67,9 @@ void adminpassword::reset_pass() {
         int i = 0, j = 0;
         char ch, st[21], ch1[21] = { "pass" };
         system("cls");
-        cout << "\n\n\t\tEnter Old Password : ";
+        gh.passwordbox();
+        p.setxy(47, 8);
+        cout << "Enter Old Password :";
         while (1)
         {
             ch = _getch();
@@ -95,8 +97,9 @@ void adminpassword::reset_pass() {
         if (st[i] == '\0' && ch1[i] == '\0')
         {
             system("cls");
-            cout << "\n\t**The Password Should be less than 20 characters & don't use spaces**\n\n";
-            cout << "\n\t\tEnter New Password : ";
+            gh.passwordbox();
+            p.setxy(47, 10);
+            cout << "Enter New Password :";
             fflush(stdin);
             i = 0;
             while (1)
@@ -108,7 +111,7 @@ void adminpassword::reset_pass() {
                     for (i = 0; st[i] != ' ' && st[i] != '\0'; i++);
                     if (j > 20 || st[i] == ' ')
                     {
-                        cout << "\n\n\t\tYou did't follow the instruction \n\n\t\tPress any key for try again.....";
+                        cout << " Try again.";
                         _getch();
                         system("cls");
                         reset_pass();
@@ -132,8 +135,7 @@ void adminpassword::reset_pass() {
             ofstream outf("password.txt");
             outf << st;
             outf.close();
-            cout << "\n\n\t\tYour Password has been changed Successfully.";
-            cout << "\n\t\tPress any key to continue......";
+            cout << "Your Password has been changed .";
             _getch();
             system("cls");
             //function to be called

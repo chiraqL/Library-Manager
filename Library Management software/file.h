@@ -3,8 +3,6 @@
 class file {
 private:
 	char roll[20];
-	int found = 0;
-	int flag = 0;
 	char book_num[20];
 	char x[20];
 	int count=0;

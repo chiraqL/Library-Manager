@@ -12,5 +12,5 @@ public:
 	/*void background();*/
 	int bookcounter();
 	int studentcounter();
-	void fontsize(int a, int b);
+	void fontsize(int , int );
 };

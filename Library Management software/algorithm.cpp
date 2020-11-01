@@ -37,6 +37,7 @@ void algorithm::swap(book& t1, book& t2)
 
 float algorithm::list_book_bubblesort(book* T, int n, bool& order, bool& type, int sortby)
 {
+
 	set_alias_sort_book(sortby);
 	auto start = chrono::high_resolution_clock::now();
 	for (int i = 0; i < n - 1; i++)

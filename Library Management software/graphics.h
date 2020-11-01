@@ -10,4 +10,5 @@ public:
 	void tablebook();
 	void tablestd();
 	void projectsubmission();
+	void miscbox();
 };
