@@ -30,3 +30,16 @@ public:
 
 	//student
 };
+
+class Sortmenu {
+private:
+	graphics gra;
+	tools to;
+public:
+	int sortby;
+	int order;
+	int sorting_algo;
+
+	void sort_book_menu();
+	void sort_student_menu();
+};

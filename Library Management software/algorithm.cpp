@@ -288,3 +288,104 @@ int algorithm::binary_search_book(book* T, int l, int r, char  x[20])
 	}
 	return 0;
 }
+
+void Sortmenu::sort_book_menu()
+{
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Sort By:";
+	to.setxy(47, 6);
+	cout << "1.Price";
+	to.setxy(47, 7);
+	cout << "2.Book Name";
+	to.setxy(47, 8);
+	cout << "3.Author Name";
+	to.setxy(47, 9);
+	cout << "4.Quantity";
+	to.setxy(47, 10);
+	cout << "5.Publisher";
+	to.setxy(47, 19);
+	cout << "Choose option" << endl;
+	to.setxy(47, 20);
+	cin >> sortby;
+
+	system("CLS");
+	gra.passwordbox();
+	to.setxy(47, 8);
+	cout << "0.Ascending Order";
+	to.setxy(47, 9);
+	cout << "1.Decending Order";
+	to.setxy(47, 10);
+	cin >> order;
+
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Select The type of sort";
+	to.setxy(47, 6);
+	cout << "1.Bubble Sort";
+	to.setxy(47, 7);
+	cout << "2.Selection Sort";
+	to.setxy(47, 8);
+	cout << "3.Insertion Sort";
+	to.setxy(47, 9);
+	cout << "4.Merge Sort";
+	to.setxy(47, 10);
+	cout << "5.Heap Sort";
+	to.setxy(47, 11);
+	cout << "6.Quick sort";
+	to.setxy(47, 12);
+	cout << "7.Bogo Sort";
+	to.setxy(47, 19);
+	cout << "Choose option" << endl;
+	to.setxy(47, 20);
+	cin >> sorting_algo;
+}
+
+void Sortmenu::sort_student_menu()
+{
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Sort By:";
+	to.setxy(47, 6);
+	cout << "1.Name";
+	to.setxy(47, 7);
+	cout << "2.Roll no.";
+	to.setxy(47, 8);
+	cout << "3.Books Issued number";
+	cin >> sortby;
+
+	system("CLS");
+	gra.passwordbox();
+	to.setxy(47, 8);
+	cout << "0.Ascending Order";
+	to.setxy(47, 9);
+	cout << "1.Decending Order";
+	to.setxy(47, 10);
+	cin >> order;
+
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Select The type of sort";
+	to.setxy(47, 6);
+	cout << "1.Bubble Sort";
+	to.setxy(47, 7);
+	cout << "2.Selection Sort";
+	to.setxy(47, 8);
+	cout << "3.Insertion Sort";
+	to.setxy(47, 9);
+	cout << "4.Merge Sort";
+	to.setxy(47, 10);
+	cout << "5.Heap Sort";
+	to.setxy(47, 11);
+	cout << "6.Quick sort";
+	to.setxy(47, 12);
+	cout << "7.Bogo Sort";
+	to.setxy(47, 19);
+	cout << "Choose option" << endl;
+	to.setxy(47, 20);
+	cin >> sorting_algo;
+}

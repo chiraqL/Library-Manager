@@ -5,6 +5,7 @@ librarianpassword lp;
 login l;
 graphics gra;
 tools to;
+Sortmenu sort_menu;
 void studentmenu::menu() {
 	gra.stdbox();
 	to.setxy(47, 5);
@@ -21,64 +22,10 @@ void studentmenu::menu() {
 	cin >> n;
 	switch (n) {
 	case 1: {
-		system("CLS");
-		gra.stdbox();
-		to.setxy(47, 5);
-		cout << "Sort By:";
-		to.setxy(47, 6);
-		cout << "1.Price";
-		to.setxy(47, 7);
-		cout << "2.Book Name";
-		to.setxy(47, 8);
-		cout << "3.Author Name";
-		to.setxy(47, 9);
-		cout << "4.Quantity";
-		to.setxy(47, 10);
-		cout << "5.Publisher";
-		to.setxy(47, 19);
-		cout << "Choose option" << endl;
-		
-		int sortby;
-		to.setxy(47, 20);
-		cin >> sortby;
-
-		system("CLS");
-		gra.passwordbox();
-		to.setxy(47, 8);
-		cout << "0.Ascending Order";
-		to.setxy(47, 9);
-		cout << "1.Decending Order";
-		to.setxy(47, 10);
-		int order;
-		cin >> order;
-
-		system("CLS");
-		gra.stdbox();
-		to.setxy(47, 5);
-		cout << "Select The type of sort";
-		to.setxy(47, 6);
-		cout << "1.Bubble Sort";
-		to.setxy(47, 7);
-		cout << "2.Selection Sort";
-		to.setxy(47, 8);
-		cout << "3.Insertion Sort";
-		to.setxy(47, 9);
-		cout << "4.Merge Sort";
-		to.setxy(47, 10);
-		cout << "5.Heap Sort";
-		to.setxy(47, 11);
-		cout << "6.Quick sort";
-		to.setxy(47, 12);
-		cout << "7.Bogo Sort";
-		to.setxy(47, 19);
-		cout << "Choose option" << endl;
-		int sorting_algo;
-		to.setxy(47, 20);
-		cin >> sorting_algo;
-
-		bool type = (sortby == 1 || sortby == 4) ? 1 : 0;
-		if (order <= 1 && sorting_algo < 8 && sortby>0)
-			f1.list_book(sorting_algo, order, type, sortby);//0 for string;1 for sortby
+		sort_menu.sort_book_menu();
+		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;			//0 for string; 1 for int
+		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
 		else
 			std::cout << "Error";
 		break;
@@ -193,13 +140,23 @@ void adminmenu::menu() {
 	}
 	case 9:
 	{
-		system("CLS");
-		//f1.sort_book();
+		sort_menu.sort_book_menu();
+		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;			//0 for string; 1 for int
+		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
+		else
+			std::cout << "Error";
+		break;
 	}
 	case 10:
 	{
-		system("CLS");
-		//f1.sort_std();
+		sort_menu.sort_student_menu();
+		bool type = (sort_menu.sortby == 3) ? 1 : 0;			//0 for string; 1 for int
+		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
+		else
+			std::cout << "Error";
+		break;
 	}
 	case 11:
 	{
