@@ -8,9 +8,9 @@ void loading::load() {
 	t.Color(2);
 	cout << "Please wait! Program is managing in your computer system";
 	t.setxy(0, 6);
-	t.displayhorizontal(120, 220);
+	t.displayhorizontal(120, 254);
 	t.setxy(0, 25);
-	t.displayhorizontal(120, 220);
+	t.displayhorizontal(120, 254);
 	t.setxy(45, 11);
 	cout << "Please wait few seconds" << endl;
 	t.setxy(50, 12);

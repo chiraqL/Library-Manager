@@ -40,8 +40,9 @@ void login::loginscreen() {
 	}
 	case 4:
 	{
-		//credits function
-		_getch();
+		system("CLS");
+		gph.credits();
+		(void)_getch();
 		exit(0);
 	}
 	default:

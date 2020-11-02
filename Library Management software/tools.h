@@ -13,4 +13,5 @@ public:
 	int bookcounter();
 	int studentcounter();
 	void fontsize(int , int );
+	void fullscreen();
 };

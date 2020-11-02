@@ -83,7 +83,7 @@ void file::search_book() {
 		if (_strcmpi(bk.returnbook_no(), x) == 0) {
 			
 			bk.display_book();
-			gp.stdbox();
+			gp.miscbox();
 			f = 1;
 		}
 
@@ -111,7 +111,7 @@ void file::search_std() {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
 			
 			stud.display_student_sts();
-			gp.stdbox();
+			gp.miscbox();
 			f = 1;
 		}
 	}
@@ -454,7 +454,7 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 }
 
 void file::binarysearch_book() {
-	gp.stdbox();
+	gp.miscbox();
 	j.setxy(47, 6);
 	cin.ignore();
 	cout << "BOOK INFORMATION" << endl;
@@ -464,7 +464,7 @@ void file::binarysearch_book() {
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
-	gp.stdbox();
+	gp.miscbox();
 	fp.open("book.txt", ios::in|ios::out);
 	int temp = j.bookcounter();
 	for (int i = 0; i <= temp; i++) {
@@ -473,6 +473,7 @@ void file::binarysearch_book() {
 	}
 	f=al.binary_search_book(itemb, 0, temp, x);
 	if (strcmp(itemb[f].book_name, x) == 0) {
+		f = 1;
 		itemb[f].display_book();
 	}
 	fp.close();

@@ -47,7 +47,14 @@ void graphics::footer() {
 
 }
 void graphics::credits() {
-
+	graphics p;
+	p.passwordbox();
+	tl.setxy(48, 10);
+	cout << "E-LIBRARY LMS";
+	tl.setxy(48,11);
+	cout << "THANK YOU!!";
+	tl.setxy(48, 12);
+	cout << "ARPAN|BIBEK|CHIRAQ";
 }
 
 void graphics::passwordbox() {

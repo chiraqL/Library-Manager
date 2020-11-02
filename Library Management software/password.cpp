@@ -6,16 +6,13 @@ tools p;
 graphics gh;
 void adminpassword::enter_pass() {
     {
-
         system("CLS");
         int i = 0;
         char ch, st[21], ch1[21] = { "pass" };
-        
         p.setxy(47, 8);
         cout <<setw(4)<< "ADMINISTRATOR LOGIN";
         p.setxy(47, 10);
         cout << "Enter Password : ";
-       
         gh.passwordbox();
         p.setxy(47, 11);
         while (1)
@@ -280,8 +277,9 @@ void librarianpassword::reset_pass() {
             ofstream outf("passwordlib.txt");
             outf << st;
             outf.close();
-            cout << "\n\n\t\tYour Password has been changed Successfully.";
-            cout << "\n\t\tPress any key to continue......";
+            cout << "Your Password has been changed Successfully.";
+            cout << "Press any key to continue......";
+            cout << "Press any key to continue......";
             _getch();
             system("cls");
             //function to be called
