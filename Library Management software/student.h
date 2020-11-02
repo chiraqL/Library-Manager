@@ -1,11 +1,11 @@
 #pragma once
 #include "Headers.h"
 class student {
-private:
-	char std_name[20];
+public:
+	char std_name[30];
 	int token;
-	char book_issued[20];
-	char roll[20];
+	char book_issued[30];
+	char roll[30];
 public:
 	void add_student();
 	void display_student_sts();
@@ -18,4 +18,5 @@ public:
 	char* returnbook_issued();
 	void resettoken();
 
+	void copy_student(student&);
 };

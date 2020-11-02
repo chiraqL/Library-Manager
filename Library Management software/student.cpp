@@ -72,3 +72,10 @@ void student::resettoken() {
 	token = 0;
 }
 
+void student::copy_student(student& T)
+{
+	strncpy_s(T.std_name, this->std_name, _TRUNCATE);
+	strncpy_s(T.roll, this->roll, _TRUNCATE);
+	T.token = this->token;
+}
+

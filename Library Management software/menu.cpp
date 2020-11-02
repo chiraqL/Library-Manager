@@ -25,7 +25,7 @@ void studentmenu::menu() {
 		sort_menu.sort_book_menu();
 		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;			//0 for string; 1 for int
 		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
 		else
 			std::cout << "Error";
 		break;
@@ -141,9 +141,9 @@ void adminmenu::menu() {
 	case 9:
 	{
 		sort_menu.sort_book_menu();
-		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;			//0 for string; 1 for int
+		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;				//0 for string; 1 for int
 		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
 		else
 			std::cout << "Error";
 		break;
@@ -151,9 +151,9 @@ void adminmenu::menu() {
 	case 10:
 	{
 		sort_menu.sort_student_menu();
-		bool type = (sort_menu.sortby == 3) ? 1 : 0;			//0 for string; 1 for int
+		bool type = (sort_menu.sortby == 3) ? 1 : 0;										//0 for string; 1 for int
 		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
+			f1.list_student(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
 		else
 			std::cout << "Error";
 		break;
