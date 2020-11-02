@@ -5,7 +5,7 @@ public:
 	
 	char authorname[50];
 	char publication_name[50];
-	char  book_no[20];
+	char book_no[50];
 	int quantity;
 	int n;
 public:

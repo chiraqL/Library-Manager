@@ -2,9 +2,9 @@
 #include "Headers.h"
 class file {
 private:
-	char roll[20];
-	char book_num[20];
-	char x[20];
+	char roll[50];
+	char book_num[50];
+	char x[50];
 	int count=0;
 	int LB = 0;
 	int mid;
@@ -24,6 +24,7 @@ public:
 	void sort_std();
 
 	void list_book(int, bool, bool, int);
+	void list_student(int, bool, bool, int);
 
 	void issue_book();
 	void deposit_book();

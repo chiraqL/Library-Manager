@@ -47,6 +47,7 @@ int tools::studentcounter() {
 	fstream fp2;
 	student o;
 	fp2.open("student.txt", ios::in);
+	count = 0;
 	while (!fp2.eof()) {
 		while (fp2.read(reinterpret_cast<char*>(&o), sizeof(student))) {
 			count++;
