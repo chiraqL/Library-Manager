@@ -100,19 +100,20 @@ void file::search_std() {
 	j.setxy(47, 6);
 	cout << "STUDENT INFORMATION" << endl;
 	j.setxy(47, 8);
-	cout << "Enter student roll  number";
+	cout << "Enter student name::";
 	j.setxy(47, 9);
 	cin >> x;
 	int f = 0;
 	system("CLS");
 	gp.stdbox();
 	fp.open("student.txt", ios::in);
+	int pos = 6;
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)))
 	{
-		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-
-			stud.display_student_sts();
+		if (strncmp(stud.std_name, x, strlen(x)) == 0) {
+			stud.display_student_sts(pos);
 			gp.miscbox();
+			pos = pos + 6;
 			f = 1;
 		}
 	}
@@ -174,7 +175,8 @@ void file::modify_std() {
 	fp.open("student.txt", ios::in | ios::out);
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-			stud.display_student_sts();
+			system("cls");
+			stud.display_student_sts(6);
 			j.setxy(47, 19);
 			cout << "Enter new details" << endl;
 			_getch();

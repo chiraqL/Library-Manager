@@ -268,7 +268,7 @@ void AlgorithmBook::shuffle(book* T, int n)
 		swap(T[i], T[rand() % n]);
 }
 
-int AlgorithmBook::binary_search_book(book* T, int l, int r, char  x[20])
+int AlgorithmBook::binary_search_book(book* T, int l, int r, char  x[50])
 {
 	if (r >= l) {
 		int mid = l + (r - l) / 2;
@@ -546,12 +546,12 @@ void AlgorithmStudent::shuffle(student* T, int n)
 		swap(T[i], T[rand() % n]);
 }
 
-int AlgorithmStudent::binary_search_student(student* T, int l, int r, char  x[20])
+int AlgorithmStudent::binary_search_student(student* T, int l, int r, char  x[50])
 {
 	if (r >= l) {
 		int mid = l + (r - l) / 2;
 
-		if (strcmp(T[mid].std_name, x) == 0)
+		if (strncmp(T[mid].std_name, x, strlen(x)) == 0)
 			return mid;
 
 
