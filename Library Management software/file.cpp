@@ -508,7 +508,7 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		break;
 	}
 	cout << "\n\n\n";
-	cout << "\t" << "Roll no." << setw(24) << "Name" << setw(24) << "# of Books Issued" ;
+	cout << "\t" << "Roll no." << setw(47) << "Name" << setw(39) << " No of Books Issued" ;
 	for (int i = 0; i < temp; i++)
 		items[i].slist();
 	j.setxy(90, 2);
