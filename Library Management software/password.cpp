@@ -67,6 +67,7 @@ void adminpassword::reset_pass() {
         gh.passwordbox();
         p.setxy(47, 8);
         cout << "Enter Old Password :";
+        p.setxy(47, 9);
         while (1)
         {
             ch = _getch();
@@ -88,6 +89,7 @@ void adminpassword::reset_pass() {
             }
         }
         ifstream intf("password.txt");
+        
         intf >> ch1;
         intf.close();
         for (i = 0; st[i] == ch1[i] && st[i] != '\0' && ch1[i] != '\0'; i++);
@@ -95,10 +97,11 @@ void adminpassword::reset_pass() {
         {
             system("cls");
             gh.passwordbox();
-            p.setxy(47, 10);
+            p.setxy(47, 8);
             cout << "Enter New Password :";
             fflush(stdin);
             i = 0;
+            p.setxy(47, 9);
             while (1)
             {
                 j++;
@@ -108,11 +111,13 @@ void adminpassword::reset_pass() {
                     for (i = 0; st[i] != ' ' && st[i] != '\0'; i++);
                     if (j > 20 || st[i] == ' ')
                     {
+                        system("cls");
+                        gh.passwordbox();
+                        p.setxy(47, 8);
                         cout << " Try again.";
                         _getch();
                         system("cls");
                         reset_pass();
-                        //function to be called
                     }
                     st[i] = '\0';
                     break;
@@ -130,17 +135,25 @@ void adminpassword::reset_pass() {
                 }
             }
             ofstream outf("password.txt");
+            
             outf << st;
             outf.close();
-            cout << "Your Password has been changed .";
+            system("cls");
+            gh.passwordbox();
+            p.setxy(47, 10);
+            cout << "Password changed .";
             _getch();
             system("cls");
-            //function to be called
         }
         else
         {
-            cout << "\n\n\t\tPassword is incorrect.....\n";
-            cout << "\n\t\tEnter 1 for retry or 2 for menu";
+            system("cls");
+            gh.passwordbox();
+            p.setxy(47, 8);
+            cout << "Password incorrect";
+            p.setxy(47, 9);
+            cout << "Enter 1 for retry";
+            p.setxy(47, 10);
             cin >> i;
             if (i == 1)
             {
@@ -150,7 +163,7 @@ void adminpassword::reset_pass() {
             else
             {
                 system("cls");
-                //funtion to be called
+                am.menu();
             }
         }
     }
@@ -208,16 +221,64 @@ void librarianpassword::enter_pass() {
     }
 }
 void librarianpassword::reset_pass() {
+    int i = 0, j = 0;
+    char ch, st[21], ch1[21] = { "pass" };
+    system("cls");
+    gh.passwordbox();
+    p.setxy(47, 8);
+    cout << "Enter Old Password :";
+    p.setxy(47, 9);
+    while (1)
     {
-        int i = 0, j = 0;
-        char ch, st[21], ch1[21] = { "pass" };
+        ch = _getch();
+        if (ch == 13)
+        {
+            st[i] = '\0';
+            break;
+        }
+        else if (ch == 8 && i > 0)
+        {
+            i--;
+            cout << "\b \b";
+        }
+        else
+        {
+            cout << "*";
+            st[i] = ch;
+            i++;
+        }
+    }
+    ifstream intf("passwordlib.txt");
+
+    intf >> ch1;
+    intf.close();
+    for (i = 0; st[i] == ch1[i] && st[i] != '\0' && ch1[i] != '\0'; i++);
+    if (st[i] == '\0' && ch1[i] == '\0')
+    {
         system("cls");
-        cout << "\n\n\t\tEnter Old Password : ";
+        gh.passwordbox();
+        p.setxy(47, 8);
+        cout << "Enter New Password :";
+        fflush(stdin);
+        i = 0;
+        p.setxy(47, 9);
         while (1)
         {
+            j++;
             ch = _getch();
             if (ch == 13)
             {
+                for (i = 0; st[i] != ' ' && st[i] != '\0'; i++);
+                if (j > 20 || st[i] == ' ')
+                {
+                    system("cls");
+                    gh.passwordbox();
+                    p.setxy(47, 8);
+                    cout << " Try again.";
+                    _getch();
+                    system("cls");
+                    reset_pass();
+                }
                 st[i] = '\0';
                 break;
             }
@@ -233,72 +294,36 @@ void librarianpassword::reset_pass() {
                 i++;
             }
         }
-        ifstream intf("passwordlib.txt");
-        intf >> ch1;
-        intf.close();
-        for (i = 0; st[i] == ch1[i] && st[i] != '\0' && ch1[i] != '\0'; i++);
-        if (st[i] == '\0' && ch1[i] == '\0')
+        ofstream outf("passwordlib.txt");
+
+        outf << st;
+        outf.close();
+        system("cls");
+        gh.passwordbox();
+        p.setxy(47, 10);
+        cout << "Password changed .";
+        _getch();
+        system("cls");
+    }
+    else
+    {
+        system("cls");
+        gh.passwordbox();
+        p.setxy(47, 8);
+        cout << "Password incorrect";
+        p.setxy(47, 9);
+        cout << "Enter 1 for retry";
+        p.setxy(47, 10);
+        cin >> i;
+        if (i == 1)
         {
             system("cls");
-            cout << "\n\t**The Password Should be less than 20 characters & don't use spaces**\n\n";
-            cout << "\n\t\tEnter New Password : ";
-            fflush(stdin);
-            i = 0;
-            while (1)
-            {
-                j++;
-                ch = _getch();
-                if (ch == 13)
-                {
-                    for (i = 0; st[i] != ' ' && st[i] != '\0'; i++);
-                    if (j > 20 || st[i] == ' ')
-                    {
-                        cout << "\n\n\t\tYou did't follow the instruction \n\n\t\tPress any key for try again.....";
-                        _getch();
-                        system("cls");
-                        reset_pass();
-                        //function to be called
-                    }
-                    st[i] = '\0';
-                    break;
-                }
-                else if (ch == 8 && i > 0)
-                {
-                    i--;
-                    cout << "\b \b";
-                }
-                else
-                {
-                    cout << "*";
-                    st[i] = ch;
-                    i++;
-                }
-            }
-            ofstream outf("passwordlib.txt");
-            outf << st;
-            outf.close();
-            cout << "Your Password has been changed Successfully.";
-            cout << "Press any key to continue......";
-            cout << "Press any key to continue......";
-            _getch();
-            system("cls");
-            //function to be called
+            reset_pass();
         }
         else
         {
-            cout << "\n\n\t\tPassword is incorrect.....\n";
-            cout << "\n\t\tEnter 1 for retry or 2 for menu";
-            cin >> i;
-            if (i == 1)
-            {
-                system("cls");
-                reset_pass();
-            }
-            else
-            {
-                system("cls");
-                //funtion to be called
-            }
+            system("cls");
+            am.menu();
         }
     }
 }
