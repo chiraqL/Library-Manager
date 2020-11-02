@@ -7,6 +7,7 @@ private:
 	char(student::* s_alias)[50];
 public:
 	void set_alias_sort_student(int sortby);
+	void set_alias_search_student(int searchby);
 	void swap(student&, student&);
 
 	//book sort algorithms
@@ -26,7 +27,8 @@ public:
 	void shuffle(student* T, int n);
 
 	//book search
-	int binary_search_student(student* T, int l, int r, char  x[20]);
+	int linear_search_student(student* T,int n, char x[50], int searchby);
+	int binary_search_student(student* T, int l, int r, char  x[50],int*);
 
 };
 class AlgorithmBook {
@@ -55,7 +57,8 @@ public:
 	void shuffle(book* T, int n);
 
 	//book search
-	int binary_search_book(book* T, int l, int r, char  x[20]);
+	int linear_search_book(book* T, char x[50]);
+	int binary_search_book(book* T, int l, int r, char  x[50]);
 
 };
 
@@ -70,4 +73,16 @@ public:
 
 	void sort_book_menu();
 	void sort_student_menu();
+};
+
+class Searchmenu {
+private:
+	graphics gra;
+	tools to;
+public:
+	int searchby;
+	int searching_algo;
+
+	void search_book_menu();
+	void search_student_menu();
 };

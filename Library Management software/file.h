@@ -28,6 +28,7 @@ public:
 
 	void issue_book();
 	void deposit_book();
-	void binarysearch_book();
+	void binarysearch_book();//remove binary from name
+	void search_student(int );
 	
 };

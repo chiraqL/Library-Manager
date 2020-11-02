@@ -268,6 +268,11 @@ void AlgorithmBook::shuffle(book* T, int n)
 		swap(T[i], T[rand() % n]);
 }
 
+int AlgorithmBook::linear_search_book(book* T,char x[50])
+{
+	return 1;
+}
+
 int AlgorithmBook::binary_search_book(book* T, int l, int r, char  x[50])
 {
 	if (r >= l) {
@@ -301,6 +306,25 @@ void AlgorithmStudent::set_alias_sort_student(int sortby)
 	case 3:
 		i_alias = &student::token;
 		break;
+	default:
+		break;
+	}
+}
+
+void AlgorithmStudent::set_alias_search_student(int searchby)
+{
+	//name roll #
+	switch (searchby)
+	{
+	case 1:
+		s_alias = &student::std_name;
+		break;
+	case 2:
+		s_alias = &student::roll;
+		break;
+	/*case 3:
+		i_alias = &student::token;
+		break;*/
 	default:
 		break;
 	}
@@ -546,22 +570,44 @@ void AlgorithmStudent::shuffle(student* T, int n)
 		swap(T[i], T[rand() % n]);
 }
 
-int AlgorithmStudent::binary_search_student(student* T, int l, int r, char  x[50])
+
+int AlgorithmStudent::linear_search_student(student* T, int n,char x[50],int searchby)
+{
+	//graphics gra;
+	set_alias_search_student(searchby);
+	int pos = 6;
+	int f = 0;
+	for (int i = 0;i < n;++i)
+	{
+		if (strncmp(T[i].*s_alias, x, strlen(x)) == 0) {
+			T[i].display_student_sts(pos);
+			//gra.miscbox();
+			pos = pos + 6;
+			f = 1;
+		}
+	}
+	if (f == 0)
+		return 1;//record not found
+	return 0;//success
+}
+
+int AlgorithmStudent::binary_search_student(student* T, int l, int r, char  x[50],int* flag)
 {
 	if (r >= l) {
 		int mid = l + (r - l) / 2;
 
-		if (strncmp(T[mid].std_name, x, strlen(x)) == 0)
+		if (strncmp(T[mid].std_name, x, strlen(x)) == 0) {
+			*flag = 1;
 			return mid;
-
+		}
 
 		if (strcmp(T[mid].std_name, x) < 0)
-			return binary_search_student(T, l, mid - 1, x);
+			return binary_search_student(T, l, mid - 1, x,flag);
 
 
-		return binary_search_student(T, mid + 1, r, x);
+		return binary_search_student(T, mid + 1, r, x, flag);
 	}
-	return 0;
+	return -1;
 }
 
 void Sortmenu::sort_book_menu()
@@ -665,3 +711,20 @@ void Sortmenu::sort_student_menu()
 	cin >> sorting_algo;
 }
 
+void Searchmenu::search_book_menu()
+{
+
+}
+
+void Searchmenu::search_student_menu()
+{
+	system("cls");
+	std::cout << "Search by::" << std::endl;
+	std::cout << "1.Name" << std::endl;
+	std::cout << "2.Roll" << std::endl;
+	cin >> searchby;
+	system("cls");
+	gra.stdbox();
+	to.setxy(47, 6);
+	cout << "STUDENT INFORMATION" << endl;
+}
