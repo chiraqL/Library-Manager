@@ -2,9 +2,9 @@
 #include "Headers.h"
 class file {
 private:
-	char roll[30];
-	char book_num[30];
-	char x[30];
+	char roll[50];
+	char book_num[50];
+	char x[50];
 	int count=0;
 	int LB = 0;
 	int mid;

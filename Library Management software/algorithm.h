@@ -4,7 +4,7 @@ class AlgorithmStudent {
 private:
 	int mid;
 	int student::* i_alias;
-	char(student::* s_alias)[30];
+	char(student::* s_alias)[50];
 public:
 	void set_alias_sort_student(int sortby);
 	void swap(student&, student&);
@@ -33,7 +33,7 @@ class AlgorithmBook {
 private:
 	int mid;
 	int book::* i_alias;
-	char(book::* s_alias)[30];
+	char(book::* s_alias)[50];
 public:
 	void set_alias_sort_book(int sortby);
 	void swap(book&, book&);

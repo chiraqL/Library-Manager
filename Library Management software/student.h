@@ -2,10 +2,10 @@
 #include "Headers.h"
 class student {
 public:
-	char std_name[30];
+	char std_name[50];
 	int token;
-	char book_issued[30];
-	char roll[30];
+	char book_issued[50];
+	char roll[50];
 public:
 	void add_student();
 	void display_student_sts();

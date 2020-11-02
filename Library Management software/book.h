@@ -3,14 +3,14 @@
 class book {
 public:
 	
-	char authorname[30];
-	char publication_name[30];
-	char book_no[30];
+	char authorname[50];
+	char publication_name[50];
+	char book_no[50];
 	int quantity;
 	int n;
 public:
 	int price;
-	char book_name[30];
+	char book_name[50];
 	void display_book();
 	void add_book();
 	void modifybook();
