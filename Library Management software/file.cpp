@@ -78,17 +78,19 @@ void file::search_book() {
 	cin >> x;
 	int f = 0;
 	system("CLS");
-	gp.stdbox();
+	cout << "\n\n\n\n";
+	cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
 	fp.open("book.txt", ios::in);
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		if (_strcmpi(bk.returnbook_no(), x) == 0) {
 
-			bk.display_book();
-			gp.miscbox();
+			bk.blist();
+			
 			f = 1;
 		}
 
 	}
+	gp.tablebook();
 	fp.close();
 	if (f == 0) {
 		cout << "No any record found" << endl;
@@ -105,17 +107,20 @@ void file::search_std() {
 	cin >> x;
 	int f = 0;
 	system("CLS");
-	gp.stdbox();
+	
+	cout << "\n\n\n\n";
+	cout << "\t" << "Roll no." << setw(47) << "Name" << setw(39) << " No of Books Issued";
+	
 	fp.open("student.txt", ios::in);
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)))
 	{
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-
-			stud.display_student_sts();
-			gp.miscbox();
+			
+			stud.slist();
 			f = 1;
 		}
 	}
+	gp.tablestd();
 	fp.close();
 	if (f == 0) {
 		cout << "No any record found" << endl;
@@ -503,13 +508,13 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		break;
 	}
 	cout << "\n\n\n";
-	cout << "\t" << "Roll no." << setw(24) << "Name" << setw(24) << "# of Books Issued" << setw(24) << "Quantity" << setw(24) << "price";
+	cout << "\t" << "Roll no." << setw(24) << "Name" << setw(24) << "# of Books Issued" ;
 	for (int i = 0; i < temp; i++)
 		items[i].slist();
 	j.setxy(90, 2);
 	cout << fixed;
 	std::cout << "Time taken::" << (float)time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
-	gp.tablebook();
+	gp.tablestd();
 	_getch();
 	fp.close();
 }
@@ -535,7 +540,7 @@ void file::binarysearch_book() {
 	f = abook.binary_search_book(itemb, 0, temp, x);
 	if (strcmp(itemb[f].book_name, x) == 0) {
 		f = 1;
-		itemb[f].display_book();
+		itemb[f].blist();
 	}
 	fp.close();
 	if (f == 0) {
