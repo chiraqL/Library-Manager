@@ -719,9 +719,14 @@ void Searchmenu::search_book_menu()
 void Searchmenu::search_student_menu()
 {
 	system("cls");
+	gra.passwordbox();
+	to.setxy(47, 8);
 	std::cout << "Search by::" << std::endl;
+	to.setxy(47, 9);
 	std::cout << "1.Name" << std::endl;
+	to.setxy(47, 10);
 	std::cout << "2.Roll" << std::endl;
+	to.setxy(47, 11);
 	cin >> searchby;
 	system("cls");
 	gra.stdbox();
