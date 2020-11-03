@@ -55,6 +55,8 @@ void graphics::credits() {
 	cout << "THANK YOU!!";
 	tl.setxy(48, 12);
 	cout << "ARPAN|BIBEK|CHIRAQ";
+	_getch();
+	system("CLS");
 }
 
 void graphics::passwordbox() {
