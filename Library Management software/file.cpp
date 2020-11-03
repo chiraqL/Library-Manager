@@ -494,11 +494,15 @@ void file::binarysearch_book() {
 
 void file::search_student(int searchby)
 {
+	system("CLS");
+	gp.stdbox();
+	j.setxy(47, 6);
 	cin.ignore();
 	if (searchby == 1)
 		cout << "Enter student name::";
 	else if(searchby==2)
 		cout << "Enter Roll no.";
+	j.setxy(47, 7);
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
@@ -512,6 +516,7 @@ void file::search_student(int searchby)
 	}
 	fp.close();
 	int ret = astud.linear_search_student(items,temp, x,searchby);
+	j.setxy(47, 20);
 	if (ret == 1)
 		cout << "Record not found";
 	_getch();
