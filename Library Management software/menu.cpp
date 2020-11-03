@@ -32,8 +32,11 @@ void studentmenu::menu() {
 		break;
 	}
 	case 2: {
-		system("CLS");
-		f1.binarysearch_book();
+		search_menu.search_book_menu();
+		if (search_menu.searchby <= 2)
+			f1.search_book(search_menu.searchby);
+		else
+			cout << "error";
 		break;
 	}
 	case 3: {
@@ -136,9 +139,11 @@ void adminmenu::menu() {
 	}
 	case 8:
 	{
-		system("CLS");
-		
-		f1.search_book();
+		search_menu.search_book_menu();
+		if (search_menu.searchby <= 2)
+			f1.search_book(search_menu.searchby);
+		else
+			cout << "error";
 		break;
 	}
 	case 9:

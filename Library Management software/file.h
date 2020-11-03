@@ -15,8 +15,6 @@ public:
 	void add_new_std();
 	void list_book_table();
 	void list_std_table();
-	void search_std();
-	void search_book();
 	void modify_book();
 	void modify_std();
 	void delete_std();
@@ -30,5 +28,7 @@ public:
 	void deposit_book();
 	void binarysearch_book();//remove binary from name
 	void search_student(int );
+	void search_book(int );
+
 	
 };

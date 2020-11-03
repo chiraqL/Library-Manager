@@ -38,6 +38,7 @@ private:
 	char(book::* s_alias)[50];
 public:
 	void set_alias_sort_book(int sortby);
+	void set_alias_search_book(int searchby);
 	void swap(book&, book&);
 
 	//book sort algorithms
@@ -57,7 +58,7 @@ public:
 	void shuffle(book* T, int n);
 
 	//book search
-	int linear_search_book(book* T, char x[50]);
+	int linear_search_book(book* T, int n, char x[50], int searchby);
 	int binary_search_book(book* T, int l, int r, char  x[50]);
 
 };
