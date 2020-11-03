@@ -506,7 +506,7 @@ void file::search_student(int searchby)
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
-	gp.stdbox();
+	//gp.stdbox();
 	int temp = j.studentcounter();
 	student studsearchlist[50];
 	fp.open("student.txt", ios::in);
@@ -515,10 +515,24 @@ void file::search_student(int searchby)
 		items[i] = stud;
 	}
 	fp.close();
+	j.setxy(45, 1);
+	cout << "Student Search by " << "'" << x << "'";
+	cout << "\n\n\n";
+	cout << " \t" << "Roll no" << setw(40) << " Name" << setw(40) << " issued ";
 	int ret = astud.linear_search_student(items,temp, x,searchby);
 	j.setxy(47, 20);
 	if (ret == 1)
+	{
+		system("CLS");
+		j.setxy(47, 9);
+		cout << "Student Search by " << "'" << x << "'";
+		j.setxy(47, 11);
 		cout << "Record not found";
+		gp.passwordbox();
+	}
+	else {
+		gp.tablestd();
+	}
 	_getch();
 }
 
@@ -549,10 +563,11 @@ void file::search_book(int searchby) {
 	int ret = abook.linear_search_book(itemb, temp, x, searchby);
 	if (ret == 1) {
 		system("CLS");
-		j.setxy(45, 1);
+		j.setxy(47, 9);
 		cout << "Book Search by " << "'" << x << "'";
-		j.setxy(47, 5);
+		j.setxy(47, 11);
 		cout << "Record not found";
+		gp.passwordbox();
 	}
 	else {
 		gp.tablebook();
