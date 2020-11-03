@@ -468,7 +468,7 @@ void file::binarysearch_book() {
 	cin.ignore();
 	cout << "BOOK INFORMATION" << endl;
 	j.setxy(47, 8);
-	cout << "Enter book  name";
+	cout << "Enter book  name::";
 	j.setxy(47, 9);
 	cin.getline(x, 50);
 	int f = 0;
@@ -487,7 +487,7 @@ void file::binarysearch_book() {
 	}
 	fp.close();
 	if (f == 0) {
-		cout << "No any record found" << endl;
+		cout << "No any record found." << endl;
 	}
 	_getch();
 }
@@ -501,7 +501,7 @@ void file::search_student(int searchby)
 	if (searchby == 1)
 		cout << "Enter student name::";
 	else if(searchby==2)
-		cout << "Enter Roll no.";
+		cout << "Enter Roll no::";
 	j.setxy(47, 7);
 	cin.getline(x, 50);
 	int f = 0;
@@ -524,10 +524,11 @@ void file::search_student(int searchby)
 
 void file::search_book(int searchby) {
 	cin.ignore();
+	j.setxy(47, 8);
 	if (searchby == 1)
 		cout << "Enter Book Title::";
 	else if (searchby == 2)
-	cout << "Enter book  number";
+		cout << "Enter Book  Number::";
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
@@ -540,7 +541,12 @@ void file::search_book(int searchby) {
 		itemb[i] = bk;
 	}
 	fp.close();
+	j.setxy(45, 1);
+	cout << "Book Search by " << "'" << x << "'";
+	cout << "\n\n\n";
+	cout << "   " << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
 	int ret = abook.linear_search_book(itemb, temp, x, searchby);
+	gp.tablebook();
 	if (ret == 1)
 		cout << "Record not found";
 	_getch();

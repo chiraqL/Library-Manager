@@ -20,16 +20,18 @@ void book::display_book() {
 void book::display_book_bk(int pos)
 {
 	//system("CLS");
-	u.setxy(47, pos);//was 6
-	cout << " Book no.: " << setw(2) << book_no << setw(2) << endl;
-	u.setxy(47, pos + 2);//8
-	cout << "Book Name: " << setw(2) << book_name << setw(2) << endl;
-	u.setxy(47, pos + 4);//10
-	cout << "Author Name" << setw(2) << setw(2) << authorname;
-	u.setxy(47, pos+6);
-	cout << " Publisher: " << setw(2) << publication_name;
-	u.setxy(47, pos+8);
-	cout << " Quantity: " << setw(2) << quantity;
+	//u.setxy(47, pos);//was 6
+	//cout << " Book no.: " << setw(2) << book_no << setw(2) << endl;
+	//u.setxy(47, pos + 2);//8
+	//cout << "Book Name: " << setw(2) << book_name << setw(2) << endl;
+	//u.setxy(47, pos + 4);//10
+	//cout << "Author Name" << setw(2) << setw(2) << authorname;
+	//u.setxy(47, pos+6);
+	//cout << " Publisher: " << setw(2) << publication_name;
+	//u.setxy(47, pos+8);
+	//cout << " Quantity: " << setw(2) << quantity;
+
+	blist();
 }
 
 void book::add_book() {
@@ -85,7 +87,7 @@ void book::modifybook() {
 void book::blist() {
 	cout << endl;
 	cout << endl;
-	cout << "' " << book_no << setw(32) << book_name << setw(26) << authorname << setw(20) << quantity << setw(24) << price;
+	cout << "  " << book_no << setw(32) << book_name << setw(26) << authorname << setw(20) << quantity << setw(24) << price;
 }
 char* book::returnbook_no() {
 	return book_no;

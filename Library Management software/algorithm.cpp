@@ -748,9 +748,14 @@ void Sortmenu::sort_student_menu()
 void Searchmenu::search_book_menu()
 {
 	system("cls");
+	to.setxy(47, 6);
 	std::cout << "Search by::" << std::endl;
+	to.setxy(47, 7);
 	std::cout << "1.Title" << std::endl;
+	to.setxy(47, 8);
 	std::cout << "2.Book no." << std::endl;
+	gra.stdbox();
+	to.setxy(47, 20);
 	cin >> searchby;
 	system("cls");
 	gra.stdbox();
