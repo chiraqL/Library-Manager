@@ -450,13 +450,13 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		break;
 	}
 	cout << "\n\n\n";
-	cout << "\t" << "Roll no." << setw(24) << "Name" << setw(24) << "# of Books Issued" << setw(24) << "Quantity" << setw(24) << "price";
+	cout << "\t" << "Roll no." << setw(48) << "Name" << setw(48) << "No. of Books Issued";// << setw(24) << "Quantity" << setw(24) << "price";
 	for (int i = 0; i < temp; i++)
 		items[i].slist();
 	j.setxy(90, 2);
 	cout << fixed;
 	std::cout << "Time taken::" << (float)time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
-	gp.tablebook();
+	gp.tablestd();
 	_getch();
 	fp.close();
 }

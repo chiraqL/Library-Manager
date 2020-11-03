@@ -710,6 +710,7 @@ void Sortmenu::sort_student_menu()
 	cout << "2.Roll no.";
 	to.setxy(47, 8);
 	cout << "3.Books Issued number";
+	to.setxy(47, 20);
 	cin >> sortby;
 
 	system("CLS");
