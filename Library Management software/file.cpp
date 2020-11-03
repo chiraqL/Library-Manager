@@ -529,6 +529,7 @@ void file::search_book(int searchby) {
 		cout << "Enter Book Title::";
 	else if (searchby == 2)
 		cout << "Enter Book  Number::";
+	j.setxy(47, 9);
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
@@ -546,9 +547,17 @@ void file::search_book(int searchby) {
 	cout << "\n\n\n";
 	cout << "   " << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
 	int ret = abook.linear_search_book(itemb, temp, x, searchby);
-	gp.tablebook();
-	if (ret == 1)
+	if (ret == 1) {
+		system("CLS");
+		j.setxy(45, 1);
+		cout << "Book Search by " << "'" << x << "'";
+		j.setxy(47, 5);
 		cout << "Record not found";
+	}
+	else {
+		gp.tablebook();
+
+	}
 	_getch();
 }
 
