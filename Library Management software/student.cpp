@@ -57,7 +57,7 @@ int student::returntoken() {
 }
 
 void student::addtoken() {
-	token = 1;
+	token += 1;
 }
 void student::gettokenbookno(char t[]) {
 
@@ -69,7 +69,7 @@ char* student::returnbook_issued() {
 }
 
 void student::resettoken() {
-	token = 0;
+	token -= 1;
 }
 
 void student::copy_student(student& T)

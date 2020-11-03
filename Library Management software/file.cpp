@@ -288,7 +288,7 @@ void file::issue_book() {
 	while (fp.read((char*)&stud, sizeof(student)) && found == 0) {
 		if (_strcmpi(stud.returnstudent_roll(), roll) == 0) {
 			found = 1;
-			if (stud.returntoken() == 0) {
+			if (stud.returntoken() >= 0) {
 				j.setxy(47, 12);
 				cout << "Enter the book number" << endl;
 				j.setxy(47, 14);
@@ -341,6 +341,10 @@ void file::deposit_book() {
 	cout << "Enter student roll  no" << endl;
 	j.setxy(47, 11);
 	cin >> roll;
+	j.setxy(47, 12);
+	cout << "Enter the book number" << endl;
+	j.setxy(47, 14);
+	cin >> book_num;
 	system("CLS");
 	gp.miscbox();
 	j.setxy(47, 8);
@@ -353,7 +357,7 @@ void file::deposit_book() {
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)) && found == 0) {
 		if (_strcmpi(stud.returnstudent_roll(), roll) == 0) {
 			found = 1;
-			if (stud.returntoken() == 1) {
+			if (stud.returntoken()>= 1) {
 				while (fp1.read(reinterpret_cast<char*>(&bk), sizeof(book)) && flag == 0) {
 					if (_strcmpi(bk.returnbook_no(), stud.returnbook_issued()) == 0) {
 						bk.display_book();
