@@ -19,13 +19,13 @@ void student::add_student() {
 	cout << "New student created" << setw(2) << endl;
 }
 
-void student::display_student_sts() {
-	system("CLS");
-	f.setxy(47, 6);
+void student::display_student_sts(int pos) {
+	//system("CLS");
+	f.setxy(47, pos);//was 6
 	cout << " roll no: " << setw(2) << roll << setw(2) << endl;
-	f.setxy(47, 8);
+	f.setxy(47, pos+2);//8
 	cout << "Student Name: " << setw(2) << std_name << setw(2) << endl;
-	f.setxy(47, 10);
+	f.setxy(47, pos+4);//10
 	cout << "Number of book issued" << setw(2) << setw(2) << token;
 	if (token == 1)
 	{

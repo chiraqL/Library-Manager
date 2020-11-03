@@ -68,60 +68,6 @@ void file::list_std_table() {
 	fp.close();
 	_getch();
 }
-void file::search_book() {
-	gp.stdbox();
-	j.setxy(47, 6);
-	cout << "BOOK INFORMATION" << endl;
-	j.setxy(47, 8);
-	cout << "Enter book  number";
-	j.setxy(47, 9);
-	cin >> x;
-	int f = 0;
-	system("CLS");
-	gp.stdbox();
-	fp.open("book.txt", ios::in);
-	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
-		if (_strcmpi(bk.returnbook_no(), x) == 0) {
-
-			bk.display_book();
-			gp.miscbox();
-			f = 1;
-		}
-
-	}
-	fp.close();
-	if (f == 0) {
-		cout << "No any record found" << endl;
-	}
-	_getch();
-}
-void file::search_std() {
-	gp.stdbox();
-	j.setxy(47, 6);
-	cout << "STUDENT INFORMATION" << endl;
-	j.setxy(47, 8);
-	cout << "Enter student roll  number";
-	j.setxy(47, 9);
-	cin >> x;
-	int f = 0;
-	system("CLS");
-	gp.stdbox();
-	fp.open("student.txt", ios::in);
-	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student)))
-	{
-		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-
-			stud.display_student_sts();
-			gp.miscbox();
-			f = 1;
-		}
-	}
-	fp.close();
-	if (f == 0) {
-		cout << "No any record found" << endl;
-	}
-	_getch();
-}
 
 void file::modify_book() {
 	int f = 0;
@@ -174,7 +120,8 @@ void file::modify_std() {
 	fp.open("student.txt", ios::in | ios::out);
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-			stud.display_student_sts();
+			system("cls");
+			stud.display_student_sts(6);
 			j.setxy(47, 19);
 			cout << "Enter new details" << endl;
 			_getch();
@@ -515,6 +462,7 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 }
 
 void file::binarysearch_book() {
+
 	gp.miscbox();
 	j.setxy(47, 6);
 	cin.ignore();
@@ -543,4 +491,54 @@ void file::binarysearch_book() {
 	}
 	_getch();
 }
+
+void file::search_student(int searchby)
+{
+	cin.ignore();
+	if (searchby == 1)
+		cout << "Enter student name::";
+	else if(searchby==2)
+		cout << "Enter Roll no.";
+	cin.getline(x, 50);
+	int f = 0;
+	system("CLS");
+	gp.stdbox();
+	int temp = j.studentcounter();
+	student studsearchlist[50];
+	fp.open("student.txt", ios::in);
+	for (int i = 0; i < temp; i++) {
+		fp.read(reinterpret_cast<char*>(&stud), sizeof(student));
+		items[i] = stud;
+	}
+	fp.close();
+	int ret = astud.linear_search_student(items,temp, x,searchby);
+	if (ret == 1)
+		cout << "Record not found";
+	_getch();
+}
+
+void file::search_book(int searchby) {
+	cin.ignore();
+	if (searchby == 1)
+		cout << "Enter Book Title::";
+	else if (searchby == 2)
+	cout << "Enter book  number";
+	cin.getline(x, 50);
+	int f = 0;
+	system("CLS");
+	//gp.stdbox();
+	int temp = j.bookcounter();
+	book booksearchlist[50];
+	fp.open("book.txt", ios::in);
+	for (int i = 0; i < temp; i++) {
+		fp.read(reinterpret_cast<char*>(&bk), sizeof(book));
+		itemb[i] = bk;
+	}
+	fp.close();
+	int ret = abook.linear_search_book(itemb, temp, x, searchby);
+	if (ret == 1)
+		cout << "Record not found";
+	_getch();
+}
+
 

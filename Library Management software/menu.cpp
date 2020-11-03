@@ -6,6 +6,7 @@ login l;
 graphics gra;
 tools to;
 Sortmenu sort_menu;
+Searchmenu search_menu;
 void studentmenu::menu() {
 	gra.stdbox();
 	to.setxy(47, 5);
@@ -31,8 +32,11 @@ void studentmenu::menu() {
 		break;
 	}
 	case 2: {
-		system("CLS");
-		f1.binarysearch_book();
+		search_menu.search_book_menu();
+		if (search_menu.searchby <= 2)
+			f1.search_book(search_menu.searchby);
+		else
+			cout << "error";
 		break;
 	}
 	case 3: {
@@ -126,16 +130,20 @@ void adminmenu::menu() {
 	}
 	case 7:
 	{
-		system("CLS");
-		
-		f1.search_std();
+		search_menu.search_student_menu();
+		if (search_menu.searchby <= 2)
+			f1.search_student(search_menu.searchby);
+		else
+			cout << "error";
 		break;
 	}
 	case 8:
 	{
-		system("CLS");
-		
-		f1.search_book();
+		search_menu.search_book_menu();
+		if (search_menu.searchby <= 2)
+			f1.search_book(search_menu.searchby);
+		else
+			cout << "error";
 		break;
 	}
 	case 9:
