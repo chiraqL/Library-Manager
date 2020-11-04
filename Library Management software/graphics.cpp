@@ -54,7 +54,7 @@ void graphics::credits() {
 	tl.setxy(48,11);
 	cout << "THANK YOU!!";
 	tl.setxy(48, 12);
-	cout << "ARPAN|BIBEK|CHIRAQ";
+	cout << "ARPAN|BIBEK|CHIRAG";
 	_getch();
 	system("CLS");
 }

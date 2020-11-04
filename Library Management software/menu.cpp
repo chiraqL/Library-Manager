@@ -73,7 +73,7 @@ void adminmenu::menu() {
 	to.setxy(47, 11);
 	cout << "7.Search Student" << endl;
 	to.setxy(47, 12);
-	cout << "8.search book" << endl;
+	cout << "8.Search book" << endl;
 	to.setxy(47, 13);
 	cout << "9.Sort book" << endl;
 	to.setxy(47, 14);
@@ -134,7 +134,7 @@ void adminmenu::menu() {
 		if (search_menu.searchby <= 2)
 			f1.search_student(search_menu.searchby);
 		else
-			cout << "error";
+			cout << "Error";
 		break;
 	}
 	case 8:
@@ -143,7 +143,7 @@ void adminmenu::menu() {
 		if (search_menu.searchby <= 2)
 			f1.search_book(search_menu.searchby);
 		else
-			cout << "error";
+			cout << "Error";
 		break;
 	}
 	case 9:
@@ -180,7 +180,7 @@ void adminmenu::menu() {
 	}
 	case 13:
 	{
-		system("cls");
+		system("CLS");
 		a.reset_pass();
 		break;
 	}
@@ -215,7 +215,7 @@ void librarianmenu::menu()
 	to.setxy(47, 8);
 	cout << "2.Deposit Book" << endl;
 	to.setxy(47, 9);
-	cout << "3.go to login" << endl;
+	cout << "3.Go to login" << endl;
 	to.setxy(47, 19);
 	cout << "Choose option" << endl;
 	to.setxy(47, 20);

@@ -5,7 +5,7 @@ void student::add_student() {
 	f.setxy(47, 6);
 	cout << "Create new student" << setw(2) << endl;
 	f.setxy(47, 7);
-	cout << "Enter Roll number" << setw(2) << endl;
+	cout << "Enter Roll number:" << setw(2) << endl;
 	f.setxy(47, 8);
 	cin >> roll;
 	cin.ignore();

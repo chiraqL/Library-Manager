@@ -37,7 +37,7 @@ void book::display_book_bk(int pos)
 void book::add_book() {
 
 	u.setxy(47, 5);
-	cout << "Enter Book number" << setw(2) << endl;
+	cout << "Enter Book number:" << setw(2) << endl;
 	u.setxy(47, 6);
 	cin >> book_no;
 	cin.ignore();
@@ -61,7 +61,7 @@ void book::add_book() {
 	u.setxy(47, 14);
 	cin >> quantity;
 	u.setxy(47, 15);
-	cout << "Enter book price" << setw(2) << endl;
+	cout << "Enter book price:" << setw(2) << endl;
 	u.setxy(47, 16);
 	cin >> price;
 	u.setxy(47, 19);
