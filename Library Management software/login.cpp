@@ -6,6 +6,7 @@ graphics gph;
 tools g;
 
 void login::loginscreen() {
+
 	system("CLS");
 	gph.footer();
 	gph.stdbox();
@@ -21,10 +22,10 @@ void login::loginscreen() {
 	cout << "Choose option";
 	g.setxy(47, 20);
 	cin >> n;
+
 	switch (n) {
 	case 1: {
 		system("CLS");
-
 		st.menu();
 		break;
 	}
@@ -39,13 +40,10 @@ void login::loginscreen() {
 		break;
 	}
 	case 4:
-	{
+	default:
 		system("CLS");
 		gph.credits();
 		(void)_getch();
 		exit(0);
-	}
-	default:
-		break;
 	}
 }

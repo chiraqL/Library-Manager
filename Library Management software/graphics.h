@@ -9,6 +9,6 @@ public:
 	void credits();
 	void tablebook();
 	void tablestd();
-	void projectsubmission();
+	void initproject();
 	void miscbox();
 };

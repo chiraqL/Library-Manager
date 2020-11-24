@@ -1,4 +1,5 @@
 #include "Headers.h"
+
 file f1;
 adminpassword a;
 librarianpassword lp;
@@ -7,7 +8,9 @@ graphics gra;
 tools to;
 Sortmenu sort_menu;
 Searchmenu search_menu;
+
 void studentmenu::menu() {
+
 	gra.stdbox();
 	to.setxy(47, 5);
 	cout << "Student Menu";
@@ -21,20 +24,21 @@ void studentmenu::menu() {
 	cout << "Choose option" << endl;
 	to.setxy(47, 20);
 	cin >> n;
+
 	switch (n) {
 	case 1: {
 		sort_menu.sort_book_menu();
-		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;			//0 for string; 1 for int
-		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
+		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;				//0 for string; 1 for int
+		if ((sort_menu.order == 0 || sort_menu.order == 1) && (sort_menu.sorting_algo >= 1 && sort_menu.sorting_algo <= 7) && (sort_menu.sortby >= 1 && sort_menu.sortby <= 5))
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
 		else
-			std::cout << "Error";
+			std::cout << "Invalid Selection!";
 		break;
 	}
 	case 2: {
 		search_menu.search_book_menu();
-		if (search_menu.searchby <= 2)
-			f1.search_book(search_menu.searchby);
+		if ((search_menu.searchby == 1 || search_menu.searchby == 2) && ((search_menu.searching_algo == 1 || search_menu.searching_algo == 2)))
+			f1.search_book(search_menu.searching_algo, 0, 0, search_menu.searchby);				//0 for ascending; 0 for string; 
 		else
 			cout << "error";
 		break;
@@ -52,8 +56,9 @@ void studentmenu::menu() {
 	studentmenu a;
 	a.menu();
 }
+
 void adminmenu::menu() {
-	
+
 	system("CLS");
 	to.setxy(47, 4);
 	cout << "ADMINISTRATOR MENU";
@@ -79,7 +84,7 @@ void adminmenu::menu() {
 	to.setxy(47, 14);
 	cout << "10.Sort Student" << endl;
 	to.setxy(47, 15);
-	cout<<"11.List student" <<endl;
+	cout << "11.List student" << endl;
 	to.setxy(47, 16);
 	cout << "12.List book" << endl;
 	to.setxy(47, 17);
@@ -132,7 +137,7 @@ void adminmenu::menu() {
 	{
 		search_menu.search_student_menu();
 		if (search_menu.searchby <= 2)
-			f1.search_student(search_menu.searchby);
+			f1.search_student(search_menu.searching_algo, 0, 0, search_menu.searchby);			//0 for ascending; 0 for string;
 		else
 			cout << "Error";
 		break;
@@ -141,7 +146,7 @@ void adminmenu::menu() {
 	{
 		search_menu.search_book_menu();
 		if (search_menu.searchby <= 2)
-			f1.search_book(search_menu.searchby);
+			f1.search_book(search_menu.searching_algo, 0, 0, search_menu.searchby);				//0 for ascending; 0 for string;
 		else
 			cout << "Error";
 		break;
@@ -151,7 +156,7 @@ void adminmenu::menu() {
 		sort_menu.sort_book_menu();
 		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;				//0 for string; 1 for int
 		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
+			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
 		else
 			std::cout << "Error";
 		break;
@@ -161,7 +166,7 @@ void adminmenu::menu() {
 		sort_menu.sort_student_menu();
 		bool type = (sort_menu.sortby == 3) ? 1 : 0;										//0 for string; 1 for int
 		if (sort_menu.order <= 1 && sort_menu.sorting_algo < 8 && sort_menu.sortby>0)
-			f1.list_student(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);	
+			f1.list_student(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);
 		else
 			std::cout << "Error";
 		break;
@@ -204,6 +209,7 @@ void adminmenu::menu() {
 	adminmenu a;
 	a.menu();
 }
+
 void librarianmenu::menu()
 {
 	system("CLS");
@@ -243,8 +249,8 @@ void librarianmenu::menu()
 	{
 		cout << "Choose correct option" << endl;
 	}
-	}
 	system("CLS");
 	librarianmenu a;
 	a.menu();
- }
+	}
+}

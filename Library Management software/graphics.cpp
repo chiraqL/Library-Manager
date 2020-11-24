@@ -55,7 +55,7 @@ void graphics::credits() {
 	cout << "THANK YOU!!";
 	tl.setxy(48, 12);
 	cout << "ARPAN|BIBEK|CHIRAG";
-	_getch();
+	(void)_getch();
 	system("CLS");
 }
 
@@ -96,7 +96,8 @@ void graphics::tablestd() {
 	tl.displayvertical(80, 4, 29, 219);
 	tl.displayvertical(118, 4, 29, 219);
 }
-void graphics::projectsubmission() {
+
+void graphics::initproject() {
 	system("color E4");
 	tl.setxy(49, 1);
 	cout << "DSA PROJECT WORK IN C++";
@@ -128,9 +129,9 @@ void graphics::projectsubmission() {
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
 
-	cout << "ARPAN |BIBEK | CHIRAG";
+	cout << "ARPAN |BIBEK |CHIRAG";
 
-	_getch();
+	(void)_getch();
 
 	system("CLS");
 	lo.loginscreen();

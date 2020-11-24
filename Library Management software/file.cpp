@@ -1,4 +1,5 @@
 #include "Headers.h"
+
 fstream fp, fp1, fp2;
 student stud;
 book bk;
@@ -8,29 +9,33 @@ book itemb[MAX];
 student items[MAX];
 AlgorithmBook abook;
 AlgorithmStudent astud;
+
 void file::add_new_book() {
+
+	system("CLS");
 	fp.open("book.txt", ios::out | ios::app);
-	system("CLS");
-	gp.stdbox();
-	system("CLS");
 	gp.stdbox();
 	bk.add_book();
 	fp.write(reinterpret_cast<char*>(&bk), sizeof(book));
 	fp.close();
-	_getch();
+
+	(void)_getch();
 }
 
 void file::add_new_std() {
-	fp.open("student.txt", ios::out | ios::app);
+	
 	system("CLS");
+	fp.open("student.txt", ios::out | ios::app);
 	gp.stdbox();
 	stud.add_student();
 	fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
 	fp.close();
-	_getch();
+
+	(void)_getch();
 }
 
 void file::list_book_table() {
+
 	system("CLS");
 	fp.open("book.txt", ios::in);
 	if (!fp) {
@@ -38,20 +43,19 @@ void file::list_book_table() {
 		return;
 	}
 	cout << "\t\t\tBOOK LIST\n\n\n" << endl;
-
-
 	cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		cout << endl;
 		bk.blist();
 	}
-
 	gp.tablebook();
 	fp.close();
-	_getch();
+
+	(void)_getch();
 }
 
 void file::list_std_table() {
+
 	system("cls");
 	fp.open("student.txt", ios::in);
 	if (!fp) {
@@ -66,10 +70,12 @@ void file::list_std_table() {
 	}
 	gp.tablestd();
 	fp.close();
-	_getch();
+
+	(void)_getch();
 }
 
 void file::modify_book() {
+
 	int f = 0;
 	gp.stdbox();
 	j.setxy(47, 6);
@@ -78,6 +84,7 @@ void file::modify_book() {
 	cout << "Enter the Book number" << endl;
 	j.setxy(47, 9);
 	cin >> x;
+
 	system("CLS");
 	gp.stdbox();
 	fp.open("book.txt", ios::in | ios::out);
@@ -86,7 +93,7 @@ void file::modify_book() {
 			bk.display_book();
 			j.setxy(47, 19);
 			cout << "Enter new details " << endl;
-			_getch();
+			(void)_getch();
 			system("CLS");
 			gp.stdbox();
 			bk.modifybook();
@@ -94,7 +101,7 @@ void file::modify_book() {
 			fp.seekp(pos, ios::cur);
 			fp.write(reinterpret_cast<char*>(&bk), sizeof(book));
 			j.setxy(47, 19);
-			cout << "new details updated" << endl;
+			cout << "New details updated!" << endl;
 			f = 1;
 			break;
 		}
@@ -102,10 +109,12 @@ void file::modify_book() {
 	fp.close();
 	if (f == 0)
 		cout << " No Record Found ";
-	_getch();
+
+	(void)_getch();
 
 }
 void file::modify_std() {
+
 	int f = 0;
 	gp.stdbox();
 	j.setxy(47, 6);
@@ -115,6 +124,7 @@ void file::modify_std() {
 	char x[20];
 	j.setxy(47, 9);
 	cin >> x;
+
 	system("cls");
 	gp.stdbox();
 	fp.open("student.txt", ios::in | ios::out);
@@ -124,7 +134,7 @@ void file::modify_std() {
 			stud.display_student_sts(6);
 			j.setxy(47, 19);
 			cout << "Enter new details" << endl;
-			_getch();
+			(void)_getch();
 			system("CLS");
 			gp.stdbox();
 			stud.modify_student();
@@ -141,7 +151,8 @@ void file::modify_std() {
 	if (f == 0) {
 		cout << "No record found" << endl;
 	}
-	_getch();
+
+	(void)_getch();
 }
 void file::delete_std()
 {
@@ -154,6 +165,7 @@ void file::delete_std()
 	cout << "Enter Roll number";
 	char x[20];
 	cin >> x;
+
 	fp.open("student.txt", ios::in | ios::out);
 	fp2.open("Temp.txt", ios::out);
 	fp.seekg(0, ios::beg);
@@ -175,12 +187,14 @@ void file::delete_std()
 	}
 	else {
 		j.setxy(47, 20);
-		cout << "Nop record found";
+		cout << "No record found";
 	}
-	_getch();
+
+	(void)_getch();
 }
 
 void file::delete_book() {
+
 	system("CLS");
 	gp.stdbox();
 	j.setxy(47, 8);
@@ -190,6 +204,7 @@ void file::delete_book() {
 	char x[20];
 	j.setxy(47, 11);
 	cin >> x;
+
 	fp.open("book.txt", ios::in | ios::out);
 	fp2.open("Temp.txt", ios::out);
 	fp.seekg(0, ios::beg);
@@ -206,10 +221,12 @@ void file::delete_book() {
 	(void)rename("Temp.txt", "book.txt");
 	j.setxy(47, 20);
 	cout << "Record Deleted";
+
 	(void)_getch();
 }
 
 void file::issue_book() {
+
 	system("CLS");
 	gp.miscbox();
 	j.setxy(47, 8);
@@ -223,6 +240,7 @@ void file::issue_book() {
 	j.setxy(47, 8);
 	cout << "Book issue" << endl;
 	j.setxy(47, 10);
+
 	fp.open("student.txt", ios::in | ios::out);
 	fp1.open("book.txt", ios::in | ios::out);
 	int found = 0;
@@ -260,21 +278,20 @@ void file::issue_book() {
 					cout << "No book exist" << endl;
 				}
 			}
-
 		}
-
-
 	}
 	if (found == 0) {
 		j.setxy(47, 20);
-		cout << "Student record not exist";
+		cout << "Student record doesn't exist";
 	}
 	fp.close();
 	fp1.close();
-	_getch();
+
+	(void)_getch();
 }
 
 void file::deposit_book() {
+
 	system("CLS");
 	gp.miscbox();
 	j.setxy(47, 8);
@@ -288,6 +305,7 @@ void file::deposit_book() {
 	j.setxy(47, 8);
 	cout << "BOOK DEPOSIT" << endl;
 	j.setxy(47, 10);
+
 	fp.open("student.txt", ios::in | ios::out);
 	fp1.open("book.txt", ios::in | ios::out);
 	int found = 0;
@@ -319,15 +337,15 @@ void file::deposit_book() {
 				}
 			}
 		}
-
 	}
 	if (found == 0) {
 		j.setxy(47, 20);
-		cout << "Student record not exist";
+		cout << "Student record doesnot exist";
 	}
 	fp.close();
 	fp1.close();
-	_getch();
+
+	(void)_getch();
 }
 
 
@@ -340,8 +358,8 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 		fp.read(reinterpret_cast<char*>(&bk), sizeof(book));
 		itemb[i] = bk;
 	}
-
-	int time_taken;
+	float time_taken = 0;
+	
 	system("CLS");
 	switch (algo)
 	{
@@ -349,7 +367,6 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 		j.setxy(55, 1);
 		cout << "Bubble sort";
 		time_taken = abook.list_book_bubblesort(itemb, temp, order, type, sortby);
-
 		break;
 	case 2:
 		j.setxy(55, 1);
@@ -390,10 +407,11 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 		itemb[i].blist();
 	j.setxy(90, 2);
 	cout << fixed;
-	std::cout << "Time taken::" << (float)time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
+	std::cout << "Time taken::" << time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
 	gp.tablebook();
-	_getch();
 	fp.close();
+
+	(void)_getch();
 }
 
 void file::list_student(int algo, bool order, bool type, int sortby)
@@ -405,8 +423,8 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		fp.read(reinterpret_cast<char*>(&stud), sizeof(student));
 		items[i] = stud;
 	}
+	float time_taken = 0;
 
-	int time_taken;
 	system("CLS");
 	switch (algo)
 	{
@@ -414,7 +432,6 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		j.setxy(55, 1);
 		cout << "Bubble sort";
 		time_taken = astud.list_student_bubblesort(items, temp, order, type, sortby);
-
 		break;
 	case 2:
 		j.setxy(55, 1);
@@ -455,58 +472,30 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		items[i].slist();
 	j.setxy(90, 2);
 	cout << fixed;
-	std::cout << "Time taken::" << (float)time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
+	std::cout << "Time taken::" << time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
 	gp.tablestd();
-	_getch();
 	fp.close();
+
+	(void)_getch();
 }
 
-void file::binarysearch_book() {
 
-	gp.miscbox();
-	j.setxy(47, 6);
-	cin.ignore();
-	cout << "BOOK INFORMATION" << endl;
-	j.setxy(47, 8);
-	cout << "Enter book  name::";
-	j.setxy(47, 9);
-	cin.getline(x, 50);
-	int f = 0;
-	system("CLS");
-	gp.miscbox();
-	fp.open("book.txt", ios::in | ios::out);
-	int temp = j.bookcounter();
-	for (int i = 0; i <= temp; i++) {
-		fp.read(reinterpret_cast<char*>(&bk), sizeof(book));
-		itemb[i] = bk;
-	}
-	f = abook.binary_search_book(itemb, 0, temp, x);
-	if (strcmp(itemb[f].book_name, x) == 0) {
-		f = 1;
-		itemb[f].display_book();
-	}
-	fp.close();
-	if (f == 0) {
-		cout << "No any record found." << endl;
-	}
-	_getch();
-}
-
-void file::search_student(int searchby)
+void file::search_student(int algo, bool order, bool type,int searchby)
 {
 	system("CLS");
 	gp.stdbox();
 	j.setxy(47, 6);
 	cin.ignore();
+
 	if (searchby == 1)
 		cout << "Enter student name::";
-	else if(searchby==2)
+	else if (searchby==2)
 		cout << "Enter Roll no::";
+	
 	j.setxy(47, 7);
 	cin.getline(x, 50);
-	int f = 0;
 	system("CLS");
-	//gp.stdbox();
+	int f = 0;
 	int temp = j.studentcounter();
 	student studsearchlist[50];
 	fp.open("student.txt", ios::in);
@@ -519,7 +508,13 @@ void file::search_student(int searchby)
 	cout << "Student Search by " << "'" << x << "'";
 	cout << "\n\n\n";
 	cout << " \t" << "Roll no" << setw(40) << " Name" << setw(40) << " issued ";
-	int ret = astud.linear_search_student(items,temp, x,searchby);
+	int ret = 1;
+
+	if (algo == 1)
+		ret = astud.linear_search_student(items, temp, x, order, type, searchby);
+	else if (algo == 2)
+		ret = astud.binary_search_student(items, temp, x, order, type, searchby);
+
 	j.setxy(47, 20);
 	if (ret == 1)
 	{
@@ -530,24 +525,25 @@ void file::search_student(int searchby)
 		cout << "Record not found";
 		gp.passwordbox();
 	}
-	else {
+	else 
 		gp.tablestd();
-	}
-	_getch();
+
+	(void)_getch();
 }
 
-void file::search_book(int searchby) {
+void file::search_book(int algo, bool order, bool type,int searchby) {
 	cin.ignore();
 	j.setxy(47, 8);
+
 	if (searchby == 1)
 		cout << "Enter Book Title::";
 	else if (searchby == 2)
 		cout << "Enter Book  Number::";
+
 	j.setxy(47, 9);
 	cin.getline(x, 50);
 	int f = 0;
 	system("CLS");
-	//gp.stdbox();
 	int temp = j.bookcounter();
 	book booksearchlist[50];
 	fp.open("book.txt", ios::in);
@@ -560,7 +556,12 @@ void file::search_book(int searchby) {
 	cout << "Book Search by " << "'" << x << "'";
 	cout << "\n\n\n";
 	cout << "   " << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
-	int ret = abook.linear_search_book(itemb, temp, x, searchby);
+	int ret = 1;
+	if (algo == 1)
+		ret = abook.linear_search_book(itemb, temp, x, order, type, searchby);
+	else if (algo == 2)
+		ret = abook.binary_search_book(itemb, temp, x, order, type, searchby);
+	
 	if (ret == 1) {
 		system("CLS");
 		j.setxy(47, 9);
@@ -569,11 +570,10 @@ void file::search_book(int searchby) {
 		cout << "Record not found";
 		gp.passwordbox();
 	}
-	else {
+	else 
 		gp.tablebook();
 
-	}
-	_getch();
+	(void)_getch();
 }
 
 
