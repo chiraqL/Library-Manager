@@ -11,11 +11,13 @@ Searchmenu search_menu;
 
 void studentmenu::menu() {
 
+	cin.clear();
+	cin.ignore();
 	gra.stdbox();
 	to.setxy(47, 5);
 	cout << "Student Menu";
 	to.setxy(47, 6);
-	cout << "1.Book list" << endl;
+	cout << "1.Sorted Book list" << endl;
 	to.setxy(47, 7);
 	cout << "2.Search Book" << endl;
 	to.setxy(47, 8);
@@ -49,7 +51,7 @@ void studentmenu::menu() {
 		break;
 	}
 	default: {
-		cout << "Incorrect selection" << endl;
+		//cout << "Incorrect selection" << endl;
 	}
 	}
 	system("CLS");
@@ -60,6 +62,8 @@ void studentmenu::menu() {
 void adminmenu::menu() {
 
 	system("CLS");
+	cin.clear();
+	cin.ignore();
 	to.setxy(47, 4);
 	cout << "ADMINISTRATOR MENU";
 	gra.adminbox();
@@ -202,7 +206,7 @@ void adminmenu::menu() {
 		break;
 	}
 	default: {
-		cout << "Choose correct option" << endl;
+		//cout << "Choose correct option" << endl;
 	}
 	}
 	system("CLS");
@@ -213,6 +217,8 @@ void adminmenu::menu() {
 void librarianmenu::menu()
 {
 	system("CLS");
+	cin.clear();
+	cin.ignore();
 	to.setxy(47, 5);
 	cout << "LIBRARIAN MENU";
 	gra.stdbox();
@@ -247,7 +253,7 @@ void librarianmenu::menu()
 	}
 	default:
 	{
-		cout << "Choose correct option" << endl;
+		//cout << "Choose correct option" << endl;
 	}
 	system("CLS");
 	librarianmenu a;

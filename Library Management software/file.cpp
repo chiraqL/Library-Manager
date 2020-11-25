@@ -23,7 +23,7 @@ void file::add_new_book() {
 }
 
 void file::add_new_std() {
-	
+
 	system("CLS");
 	fp.open("student.txt", ios::out | ios::app);
 	gp.stdbox();
@@ -44,14 +44,34 @@ void file::list_book_table() {
 	}
 	cout << "\t\t\tBOOK LIST\n\n\n" << endl;
 	cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
+	int countbk = 0;
+	int totalbk = j.bookcounter();
+	int pages = totalbk / 12;
+	if (totalbk % 12 != 0)
+		++pages;
 	while (fp.read(reinterpret_cast<char*>(&bk), sizeof(book))) {
 		cout << endl;
+		++countbk;
 		bk.blist();
+		if (pages == 1 && (countbk==totalbk%12)) {
+			gp.tablebook();
+			cout << "\n  END\t\t\t\t";
+			system("pause");
+			break;
+		}
+		if (countbk == 12)
+		{
+			gp.tablebook();
+			countbk = 0;
+			--pages;
+			cout << "\n  Remaining Pages: " << pages << "\t\t\t";
+			system("pause");
+			system("cls");
+			cout << "\t\t\tBOOK LIST\n\n\n" << endl;
+			cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
+		}
 	}
-	gp.tablebook();
 	fp.close();
-
-	(void)_getch();
 }
 
 void file::list_std_table() {
@@ -64,14 +84,35 @@ void file::list_std_table() {
 	}
 	cout << "\t\tSTUDENT LIST\n\n";
 	cout << "\n\n";
-	cout << " \t" << "Roll no" << setw(40) << " Name" << setw(40) << " issued ";
+	cout << " \t" << "Roll no" << setw(40) << " Name" << setw(40) << " issued";
+	int countstd = 0;
+	int totalstd = j.studentcounter();
+	int pages = totalstd / 12;
+	if (totalstd % 12 != 0)
+		++pages;
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
+		++countstd;
 		stud.slist();
+		if (pages == 1 && (countstd == totalstd % 12)) {
+			gp.tablestd();
+			cout << "\n  END\t\t\t\t";
+			system("pause");
+			break;
+		}
+		if (countstd == 12)
+		{
+			gp.tablestd();
+			countstd = 0;
+			--pages;
+			cout << "\n  Remaining Pages: " << pages << "\t\t\t";
+			system("pause");
+			system("cls");
+			cout << "\t\tSTUDENT LIST\n\n";
+			cout << "\n\n";
+			cout << " \t" << "Roll no" << setw(40) << " Name" << setw(40) << " issued";
+		}
 	}
-	gp.tablestd();
 	fp.close();
-
-	(void)_getch();
 }
 
 void file::modify_book() {
@@ -349,7 +390,7 @@ void file::deposit_book() {
 }
 
 
-void file::list_book(int algo, bool order, bool type, int sortby)	
+void file::list_book(int algo, bool order, bool type, int sortby)
 {
 	int temp;
 	fp.open("book.txt", ios::in | ios::out);
@@ -359,7 +400,7 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 		itemb[i] = bk;
 	}
 	float time_taken = 0;
-	
+
 	system("CLS");
 	switch (algo)
 	{
@@ -403,15 +444,39 @@ void file::list_book(int algo, bool order, bool type, int sortby)
 	}
 	cout << "\n\n\n";
 	cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
-	for (int i = 0; i < temp; i++)
+	int countbk = 0;
+	int totalbk = temp;
+	int pages = totalbk / 12;
+	if (totalbk % 12 != 0)
+		++pages;
+	for (int i = 0; i < temp; i++) {
+		++countbk;
 		itemb[i].blist();
+		if (pages == 1 && (countbk == totalbk % 12)) {
+			gp.tablebook();
+			cout << "\n  END\t\t\t\t";
+			break;
+		}
+		if (countbk == 12)
+		{
+			gp.tablestd();
+			countbk = 0;
+			--pages;
+			cout << "\n  Remaining Pages: " << pages << "\t\t\t";
+			system("pause");
+			system("cls");
+			j.setxy(55, 1);
+			cout << "\n\n\n";
+			cout << "\t" << "Book no" << setw(24) << "Name" << setw(24) << "Author" << setw(24) << "Quantity" << setw(24) << "price";
+		}
+	}
 	j.setxy(90, 2);
 	cout << fixed;
 	std::cout << "Time taken::" << time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
 	gp.tablebook();
 	fp.close();
-
-	(void)_getch();
+	j.setxy(50, 30);
+	system("pause");
 }
 
 void file::list_student(int algo, bool order, bool type, int sortby)
@@ -467,20 +532,43 @@ void file::list_student(int algo, bool order, bool type, int sortby)
 		break;
 	}
 	cout << "\n\n\n";
-	cout << "\t" << "Roll no." << setw(48) << "Name" << setw(48) << "No. of Books Issued";// << setw(24) << "Quantity" << setw(24) << "price";
-	for (int i = 0; i < temp; i++)
+	cout << "\t" << "Roll no." << setw(48) << "Name" << setw(48) << "No. of Books Issued";
+	int countstd = 0;
+	int totalstd = temp;
+	int pages = totalstd / 12;
+	if (totalstd % 12 != 0)
+		++pages;
+	for (int i = 0; i < temp; i++) {
+		++countstd;
 		items[i].slist();
+		if (pages == 1 && (countstd == totalstd % 12)) {
+			gp.tablestd();
+			cout << "\n  END\t\t\t\t";
+			break;
+		}
+		if (countstd == 12)
+		{
+			gp.tablestd();
+			countstd = 0;
+			--pages;
+			cout << "\n  Remaining Pages: " << pages << "\t\t\t";
+			system("pause");
+			system("cls");
+			j.setxy(55, 1);
+			cout << "\n\n\n";
+			cout << "\t" << "Roll no." << setw(48) << "Name" << setw(48) << "No. of Books Issued";
+		}
+	}
 	j.setxy(90, 2);
 	cout << fixed;
 	std::cout << "Time taken::" << time_taken * 10e-9 << setw(2) << " seconds" << std::endl;
-	gp.tablestd();
 	fp.close();
-
-	(void)_getch();
+	j.setxy(50, 30);
+	system("pause");
 }
 
 
-void file::search_student(int algo, bool order, bool type,int searchby)
+void file::search_student(int algo, bool order, bool type, int searchby)
 {
 	system("CLS");
 	gp.stdbox();
@@ -489,9 +577,9 @@ void file::search_student(int algo, bool order, bool type,int searchby)
 
 	if (searchby == 1)
 		cout << "Enter student name::";
-	else if (searchby==2)
+	else if (searchby == 2)
 		cout << "Enter Roll no::";
-	
+
 	j.setxy(47, 7);
 	cin.getline(x, 50);
 	system("CLS");
@@ -525,13 +613,13 @@ void file::search_student(int algo, bool order, bool type,int searchby)
 		cout << "Record not found";
 		gp.passwordbox();
 	}
-	else 
+	else
 		gp.tablestd();
 
 	(void)_getch();
 }
 
-void file::search_book(int algo, bool order, bool type,int searchby) {
+void file::search_book(int algo, bool order, bool type, int searchby) {
 	cin.ignore();
 	j.setxy(47, 8);
 
@@ -561,7 +649,7 @@ void file::search_book(int algo, bool order, bool type,int searchby) {
 		ret = abook.linear_search_book(itemb, temp, x, order, type, searchby);
 	else if (algo == 2)
 		ret = abook.binary_search_book(itemb, temp, x, order, type, searchby);
-	
+
 	if (ret == 1) {
 		system("CLS");
 		j.setxy(47, 9);
@@ -570,7 +658,7 @@ void file::search_book(int algo, bool order, bool type,int searchby) {
 		cout << "Record not found";
 		gp.passwordbox();
 	}
-	else 
+	else
 		gp.tablebook();
 
 	(void)_getch();
