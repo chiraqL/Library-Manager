@@ -5,7 +5,7 @@ void student::add_student() {
 	f.setxy(47, 6);
 	cout << "Create new student" << setw(2) << endl;
 	f.setxy(47, 7);
-	cout << "Enter Roll number" << setw(2) << endl;
+	cout << "Enter Roll number:" << setw(2) << endl;
 	f.setxy(47, 8);
 	cin >> roll;
 	cin.ignore();
@@ -21,17 +21,18 @@ void student::add_student() {
 
 void student::display_student_sts(int pos) {
 	//system("CLS");
-	f.setxy(47, pos);//was 6
-	cout << " roll no: " << setw(2) << roll << setw(2) << endl;
-	f.setxy(47, pos+2);//8
-	cout << "Student Name: " << setw(2) << std_name << setw(2) << endl;
-	f.setxy(47, pos+4);//10
-	cout << "Number of book issued" << setw(2) << setw(2) << token;
-	if (token == 1)
-	{
-		f.setxy(47, 12);
-		cout << " Book Number " << setw(2) << book_issued;
-	}
+	//f.setxy(47, pos);//was 6
+	//cout << " roll no: " << setw(2) << roll << setw(2) << endl;
+	//f.setxy(47, pos+2);//8
+	//cout << "Student Name: " << setw(2) << std_name << setw(2) << endl;
+	//f.setxy(47, pos+4);//10
+	//cout << "Number of book issued" << setw(2) << setw(2) << token;
+	//if (token == 1)
+	//{
+	//	f.setxy(47, 12);
+	//	cout << " Book Number " << setw(2) << book_issued;
+	//}
+	slist();
 }
 
 void student::modify_student() {
@@ -47,7 +48,7 @@ void student::modify_student() {
 void student::slist() {
 	cout << endl;
 	cout << endl;
-	cout  <<"\t"<< roll << setw(40) << std_name << setw(40) << token;
+	cout  <<"\t"<< roll << setw(46) << std_name << setw(40) << token;
 }
 char* student::returnstudent_roll(){
 	return roll;

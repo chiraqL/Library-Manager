@@ -1,7 +1,6 @@
 #pragma once
-#include <chrono> 
+#include <chrono>			//for time of execution
 #include "Headers.h"
-#include"algorithm.h"
 
 void AlgorithmBook::set_alias_sort_book(int sortby)
 {
@@ -252,7 +251,7 @@ int AlgorithmBook::partition(book* T, int low, int high, bool& order, bool& type
 	for (int j = low; j <= high - 1; j++)
 	{
 		//if (order ? (T[j].*i_alias > i_pivot) : (T[j].*i_alias < i_pivot))
-		if(type?(order ? (T[j].*i_alias > i_pivot) : (T[j].*i_alias < i_pivot)):(order ? (_strcmpi(T[j].*s_alias,s_pivot)>0) : (_strcmpi(T[j].*s_alias, s_pivot) < 0)))
+		if (type ? (order ? (T[j].*i_alias > i_pivot) : (T[j].*i_alias < i_pivot)) : (order ? (_strcmpi(T[j].*s_alias, s_pivot) > 0) : (_strcmpi(T[j].*s_alias, s_pivot) < 0)))
 		{
 			i++;
 			swap(T[i], T[j]);
@@ -266,17 +265,17 @@ float AlgorithmBook::list_book_bogosort(book* T, int n, bool& order, bool& type,
 {
 	set_alias_sort_book(sortby);
 	auto start = chrono::high_resolution_clock::now();
-	while (!isSorted(T, n, order,type))
+	while (!isSorted(T, n, order, type))
 		shuffle(T, n);
 	auto end = chrono::high_resolution_clock::now();
 	return chrono::duration_cast<chrono::nanoseconds>(end - start).count();
 }
 
-bool AlgorithmBook::isSorted(book* T, int n, bool& order,bool& type)
+bool AlgorithmBook::isSorted(book* T, int n, bool& order, bool& type)
 {
 	while (--n >= 1)
 		//if (order ? (T[n].price > T[n - 1].price) : (T[n].price < T[n - 1].price))
-		if(type?(order ? (T[n].*i_alias > T[n - 1].*i_alias) : (T[n].*i_alias < T[n - 1].*i_alias)):(order ? (_strcmpi(T[n].*s_alias,T[n - 1].*s_alias)>0) : (_strcmpi(T[n].*s_alias, T[n - 1].*s_alias) < 0)))
+		if (type ? (order ? (T[n].*i_alias > T[n - 1].*i_alias) : (T[n].*i_alias < T[n - 1].*i_alias)) : (order ? (_strcmpi(T[n].*s_alias, T[n - 1].*s_alias) > 0) : (_strcmpi(T[n].*s_alias, T[n - 1].*s_alias) < 0)))
 			return false;
 	return true;
 }
@@ -287,7 +286,7 @@ void AlgorithmBook::shuffle(book* T, int n)
 		swap(T[i], T[rand() % n]);
 }
 
-int AlgorithmBook::linear_search_book(book* T, int n, char x[50], int searchby)
+int AlgorithmBook::linear_search_book(book* T, int n, char x[50], bool order, bool type, int searchby)
 {
 	//graphics gra;
 	set_alias_search_book(searchby);
@@ -307,22 +306,47 @@ int AlgorithmBook::linear_search_book(book* T, int n, char x[50], int searchby)
 	return 0;//success
 }
 
-int AlgorithmBook::binary_search_book(book* T, int l, int r, char  x[50])
+//Sorts data; calls binary search algorithm; searches for multiple occurrences; displays the result;
+int AlgorithmBook::binary_search_book(book* T, int n, char x[50], bool order, bool type, int searchby)
+{
+	//searchby points to either :: BookName(1) OR Book#(2);
+	set_alias_search_book(searchby);
+
+	//Sorting book array T using Quick Sort;
+	quickSort(T, 0, n - 1, order, type);				// Changes T to sorted array;
+
+	//Binary Search to find single occurrence;
+	int index = binary_search_algo(T, 0, n - 1, x);		//index > 0 if results found;
+	if (index == -1)
+		return 1;										//Not found;
+
+	//checks left and right for multiple occurrences;
+	int left = index - 1;
+	int right = index + 1;
+	while (left >= 0 && (strncmp(T[left].*s_alias, x, strlen(x)) == 0))
+		--left;
+	while (right < n && (strncmp(T[right].*s_alias, x, strlen(x)) == 0))
+		++right;
+
+	for (int i = left + 1;i < right;++i)				//display all occurrences;
+	{
+		T[i].blist();
+	}
+	return 0;											//success;
+}
+
+//Searches array for data; returns index if found; else returns -1;
+int AlgorithmBook::binary_search_algo(book* T, int l, int r, char x[50])
 {
 	if (r >= l) {
 		int mid = l + (r - l) / 2;
-
-		if (strcmp(T[mid].returnbook_name(), x) == 0)
+		if (strncmp(T[mid].*s_alias, x, strlen(x)) == 0)
 			return mid;
-
-
-		if (strcmp(T[mid].returnbook_name(), x) < 0)
-			return binary_search_book(T, l, mid - 1, x);
-
-
-		return binary_search_book(T, mid + 1, r, x);
+		if (strncmp(T[mid].*s_alias, x, strlen(x)) > 0)
+			return binary_search_algo(T, l, mid - 1, x);
+		return binary_search_algo(T, mid + 1, r, x);
 	}
-	return 0;
+	return -1;
 }
 
 //STUDENT
@@ -356,9 +380,9 @@ void AlgorithmStudent::set_alias_search_student(int searchby)
 	case 2:
 		s_alias = &student::roll;
 		break;
-	/*case 3:
-		i_alias = &student::token;
-		break;*/
+		/*case 3:
+			i_alias = &student::token;
+			break;*/
 	default:
 		break;
 	}
@@ -605,7 +629,7 @@ void AlgorithmStudent::shuffle(student* T, int n)
 }
 
 
-int AlgorithmStudent::linear_search_student(student* T, int n,char x[50],int searchby)
+int AlgorithmStudent::linear_search_student(student* T, int n, char x[50], bool order, bool type, int searchby)
 {
 	//graphics gra;
 	set_alias_search_student(searchby);
@@ -625,21 +649,47 @@ int AlgorithmStudent::linear_search_student(student* T, int n,char x[50],int sea
 	return 0;//success
 }
 
-int AlgorithmStudent::binary_search_student(student* T, int l, int r, char  x[50],int* flag)
+//Sorts data; calls binary search algorithm; searches for multiple occurrences; displays the result;
+int AlgorithmStudent::binary_search_student(student* T, int n, char x[50], bool order, bool type, int searchby)
+{
+	//searchby points to either :: StudentName(1) OR Roll#(2);
+	set_alias_search_student(searchby);
+
+	//Sorting student array T using Quick Sort;
+	quickSort(T, 0, n - 1, order, type);				// Changes T to sorted array;
+	
+	//Binary Search to find single occurrence;
+	int index = binary_search_algo(T, 0, n - 1, x);		//index > 0 if results found;
+	if (index == -1) 
+		return 1;										//Not found;
+	
+	//checks left and right for multiple occurrences;
+	int left = index - 1;
+	int right = index + 1;
+	while (left >= 0 && (strncmp(T[left].*s_alias, x, strlen(x)) == 0))
+		--left;
+	while (right < n && (strncmp(T[right].*s_alias, x, strlen(x)) == 0))
+		++right;
+
+	int pos = 6;										//For display formatting;
+	for (int i = left+1;i < right;++i)					//display all occurrences;
+	{
+			T[i].display_student_sts(pos);
+			pos = pos + 6;
+	}
+	return 0;											//success;
+}
+
+//Searches array for data; returns index if found; else returns -1;
+int AlgorithmStudent::binary_search_algo(student* T, int l, int r, char x[50])
 {
 	if (r >= l) {
 		int mid = l + (r - l) / 2;
-
-		if (strncmp(T[mid].std_name, x, strlen(x)) == 0) {
-			*flag = 1;
+		if (strncmp(T[mid].*s_alias, x, strlen(x)) == 0)
 			return mid;
-		}
-
-		if (strcmp(T[mid].std_name, x) < 0)
-			return binary_search_student(T, l, mid - 1, x,flag);
-
-
-		return binary_search_student(T, mid + 1, r, x, flag);
+		if (strncmp(T[mid].*s_alias, x, strlen(x)) > 0)
+			return binary_search_algo(T, l, mid - 1, x);
+		return binary_search_algo(T, mid + 1, r, x);
 	}
 	return -1;
 }
@@ -710,6 +760,7 @@ void Sortmenu::sort_student_menu()
 	cout << "2.Roll no.";
 	to.setxy(47, 8);
 	cout << "3.Books Issued number";
+	to.setxy(47, 20);
 	cin >> sortby;
 
 	system("CLS");
@@ -747,11 +798,30 @@ void Sortmenu::sort_student_menu()
 
 void Searchmenu::search_book_menu()
 {
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Select algorithm:";
+	to.setxy(47, 6);
+	cout << "1.Linear Search";
+	to.setxy(47, 7);
+	cout << "2.Binary Search";
+	to.setxy(47, 19);
+	cout << "Choose option" << endl;
+	to.setxy(47, 20);
+	cin >> searching_algo;
+	
 	system("cls");
+	to.setxy(47, 6);
 	std::cout << "Search by::" << std::endl;
+	to.setxy(47, 7);
 	std::cout << "1.Title" << std::endl;
+	to.setxy(47, 8);
 	std::cout << "2.Book no." << std::endl;
+	gra.stdbox();
+	to.setxy(47, 20);
 	cin >> searchby;
+	
 	system("cls");
 	gra.stdbox();
 	to.setxy(47, 6);
@@ -760,16 +830,30 @@ void Searchmenu::search_book_menu()
 
 void Searchmenu::search_student_menu()
 {
+	system("CLS");
+	gra.stdbox();
+	to.setxy(47, 5);
+	cout << "Select algorithm:";
+	to.setxy(47, 6);
+	cout << "1.Linear Search";
+	to.setxy(47, 7);
+	cout << "2.Binary Search";
+	to.setxy(47, 19);
+	cout << "Choose option" << endl;
+	to.setxy(47, 20);
+	cin >> searching_algo;
+
 	system("cls");
-	gra.passwordbox();
+	gra.stdbox();
 	to.setxy(47, 8);
 	std::cout << "Search by::" << std::endl;
 	to.setxy(47, 9);
 	std::cout << "1.Name" << std::endl;
 	to.setxy(47, 10);
 	std::cout << "2.Roll" << std::endl;
-	to.setxy(47, 11);
+	to.setxy(47, 20);
 	cin >> searchby;
+
 	system("cls");
 	gra.stdbox();
 	to.setxy(47, 6);

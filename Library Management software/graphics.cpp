@@ -42,8 +42,8 @@ void graphics::footer() {
 
 	tl.setxy(47, 27);
 	cout << "LIBRARY MANAGEMENT SOFTWARE";
-	tl.setxy(44, 28);
-	cout  << "copyright-2020,ARPAN|BIBEK|CHIRAQ";
+	tl.setxy(40, 28);
+	cout  << "Copyright 2020 -- ARPAN | BIBEK | CHIRAG";
 
 }
 void graphics::credits() {
@@ -54,8 +54,8 @@ void graphics::credits() {
 	tl.setxy(48,11);
 	cout << "THANK YOU!!";
 	tl.setxy(48, 12);
-	cout << "ARPAN|BIBEK|CHIRAQ";
-	_getch();
+	cout << "ARPAN|BIBEK|CHIRAG";
+	(void)_getch();
 	system("CLS");
 }
 
@@ -96,7 +96,8 @@ void graphics::tablestd() {
 	tl.displayvertical(80, 4, 29, 219);
 	tl.displayvertical(118, 4, 29, 219);
 }
-void graphics::projectsubmission() {
+
+void graphics::initproject() {
 	system("color E4");
 	tl.setxy(49, 1);
 	cout << "DSA PROJECT WORK IN C++";
@@ -128,9 +129,9 @@ void graphics::projectsubmission() {
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
 
-	cout << "ARPAN|BIBEK|CHIRAG";
+	cout << "ARPAN |BIBEK |CHIRAG";
 
-	_getch();
+	(void)_getch();
 
 	system("CLS");
 	lo.loginscreen();

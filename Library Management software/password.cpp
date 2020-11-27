@@ -1,9 +1,11 @@
 #include"password.h"
+
 adminmenu am;
 librarianmenu lm;
 login h;
 tools p;
 graphics gh;
+
 void adminpassword::enter_pass() {
     {
         system("CLS");
@@ -15,9 +17,9 @@ void adminpassword::enter_pass() {
         cout << "Enter Password : ";
         gh.passwordbox();
         p.setxy(47, 11);
+
         while (1)
         {
-            
             ch = _getch();
             if (ch == 13)
             {
@@ -36,6 +38,7 @@ void adminpassword::enter_pass() {
                 i++;
             }
         }
+
         ifstream inf("password.txt");
         inf >> ch1;
         inf.close();
@@ -51,9 +54,8 @@ void adminpassword::enter_pass() {
             p.setxy(47, 11);
             cout <<setw(4)<< "WRONG PASSWORD";
             gh.passwordbox();
-            _getch();
-            system("cls");
-           
+            (void)_getch();
+            system("cls");      
             h.loginscreen();
         }
     }
@@ -115,7 +117,7 @@ void adminpassword::reset_pass() {
                         gh.passwordbox();
                         p.setxy(47, 8);
                         cout << " Try again.";
-                        _getch();
+                        (void)_getch();
                         system("cls");
                         reset_pass();
                     }
@@ -135,14 +137,13 @@ void adminpassword::reset_pass() {
                 }
             }
             ofstream outf("password.txt");
-            
             outf << st;
             outf.close();
             system("cls");
             gh.passwordbox();
             p.setxy(47, 10);
             cout << "Password changed .";
-            _getch();
+            (void)_getch();
             system("cls");
         }
         else
@@ -168,6 +169,7 @@ void adminpassword::reset_pass() {
         }
     }
 }
+
 void librarianpassword::enter_pass() {
     {
         system("CLS");
@@ -211,15 +213,16 @@ void librarianpassword::enter_pass() {
         else
         {
             system("cls");
-                p.setxy(47, 11);
+            p.setxy(47, 11);
             cout << setw(4) << "WRONG PASSWORD";
             gh.passwordbox();
-            _getch();
+            (void)_getch();
             system("cls");
             h.loginscreen();
         }
     }
 }
+
 void librarianpassword::reset_pass() {
     int i = 0, j = 0;
     char ch, st[21], ch1[21] = { "pass" };
@@ -249,7 +252,6 @@ void librarianpassword::reset_pass() {
         }
     }
     ifstream intf("passwordlib.txt");
-
     intf >> ch1;
     intf.close();
     for (i = 0; st[i] == ch1[i] && st[i] != '\0' && ch1[i] != '\0'; i++);
@@ -275,7 +277,7 @@ void librarianpassword::reset_pass() {
                     gh.passwordbox();
                     p.setxy(47, 8);
                     cout << " Try again.";
-                    _getch();
+                    (void)_getch();
                     system("cls");
                     reset_pass();
                 }
@@ -302,7 +304,7 @@ void librarianpassword::reset_pass() {
         gh.passwordbox();
         p.setxy(47, 10);
         cout << "Password changed .";
-        _getch();
+        (void)_getch();
         system("cls");
     }
     else
