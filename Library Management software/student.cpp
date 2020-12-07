@@ -18,6 +18,21 @@ void student::add_student() {
 	f.setxy(47, 19);
 	cout << "New student created" << setw(2) << endl;
 }
+void student::display_student_sts() {
+	system("CLS");
+	f.setxy(47, 6);
+	cout << " Roll no: " << setw(2) << roll << setw(2) << endl;
+	f.setxy(47, 8);
+	cout << "Student Name: " << setw(2) << std_name << setw(2) << endl;
+	f.setxy(47, 10);
+	cout << "Number of book issued" << setw(2) << setw(2) << token;
+	if (token == 1)
+	{
+		f.setxy(47, 12);
+		cout << " Book Number " << setw(2) << book_issued;
+	}
+	
+}
 
 void student::display_student_sts(int pos) {
 	//system("CLS");
@@ -36,7 +51,7 @@ void student::display_student_sts(int pos) {
 }
 
 void student::modify_student() {
-	system("CLS");
+
 	f.setxy(47, 6);
 	cout << " Roll no: " << roll << setw(2) << endl;
 	f.setxy(47, 8);

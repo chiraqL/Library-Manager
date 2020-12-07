@@ -255,8 +255,9 @@ void librarianmenu::menu()
 	{
 		//cout << "Choose correct option" << endl;
 	}
+	}
 	system("CLS");
 	librarianmenu a;
 	a.menu();
-	}
+	
 }

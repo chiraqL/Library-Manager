@@ -17,6 +17,6 @@ public:
 	void gettokenbookno(char t[]);
 	char* returnbook_issued();
 	void resettoken();
-
+	void display_student_sts();
 	void copy_student(student&);
 };

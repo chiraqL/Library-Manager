@@ -48,7 +48,7 @@ public:
 	float list_book_selectionsort(book*, int, bool&, bool&, int);
 	float list_book_insertionsort(book*, int, bool&, bool&, int);
 	float list_book_mergesort(book*, int, bool&, bool&, int);
-	void mergeSort(book* T, int l, int r, bool&, bool& );
+	void mergeSort(book* T, int l, int r, bool&, bool& );	
 	void merge(book* T, int l, int m, int r, bool&, bool&  );
 	float list_book_heapsort(book*, int, bool&, bool&, int);
 	void heapify(book*, int n, int i, bool&,bool&);

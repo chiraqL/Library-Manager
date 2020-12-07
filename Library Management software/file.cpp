@@ -171,10 +171,12 @@ void file::modify_std() {
 	fp.open("student.txt", ios::in | ios::out);
 	while (fp.read(reinterpret_cast<char*>(&stud), sizeof(student))) {
 		if (_strcmpi(stud.returnstudent_roll(), x) == 0) {
-			system("cls");
-			stud.display_student_sts(6);
+
+			stud.display_student_sts();
+			gp.stdbox();
 			j.setxy(47, 19);
 			cout << "Enter new details" << endl;
+			j.setxy(47, 21);
 			(void)_getch();
 			system("CLS");
 			gp.stdbox();
@@ -296,6 +298,8 @@ void file::issue_book() {
 				cin >> book_num;
 				while (fp1.read(reinterpret_cast<char*>(&bk), sizeof(book)) && flag == 0) {
 					if (_strcmpi(bk.returnbook_no(), book_num) == 0) {
+						system("CLS");
+						gp.miscbox();
 						bk.display_book();
 						flag = 1;
 						stud.addtoken();
