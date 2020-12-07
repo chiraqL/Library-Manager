@@ -12,7 +12,7 @@
 
 ##### Splash Screen
 
-![Splash Screen](./images/Splash.png)
+![Splash Screen](./images/splash.png)
 
 ##### Menu
 
