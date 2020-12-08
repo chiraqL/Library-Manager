@@ -4,7 +4,7 @@
 
 #### Project Members
 
--   **Arpan Pokhrel** (075BCT015)
+-   **Arpan Pokharel** (075BCT015)
 -   **Bibek Basyal** (075BCT097)
 -   **Chirag Lamsal** (075BCT032)
 

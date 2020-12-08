@@ -124,7 +124,7 @@ void graphics::initproject() {
 	tl.setxy(35, 9);
 	cout << "SUBMITTED TO:" ;
 	tl.setxy(35, 10);	
-	cout << "Bibaha Sthapit";
+	cout << "Bibha Sthapit";
 	tl.setxy(73, 9);
 	cout << "SUBMITTED BY:";
 	tl.setxy(73, 10);
