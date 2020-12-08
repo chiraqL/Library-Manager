@@ -288,16 +288,12 @@ void AlgorithmBook::shuffle(book* T, int n)
 
 int AlgorithmBook::linear_search_book(book* T, int n, char x[50], bool order, bool type, int searchby)
 {
-	//graphics gra;
 	set_alias_search_book(searchby);
-	int pos = 6;
 	int f = 0;
 	for (int i = 0;i < n;++i)
 	{
 		if (strncmp(T[i].*s_alias, x, strlen(x)) == 0) {
-			T[i].display_book_bk(pos);
-			//gra.miscbox();
-			pos = pos + 11;
+			T[i].blist();
 			f = 1;
 		}
 	}
@@ -631,16 +627,12 @@ void AlgorithmStudent::shuffle(student* T, int n)
 
 int AlgorithmStudent::linear_search_student(student* T, int n, char x[50], bool order, bool type, int searchby)
 {
-	//graphics gra;
 	set_alias_search_student(searchby);
-	int pos = 6;
 	int f = 0;
 	for (int i = 0;i < n;++i)
 	{
 		if (strncmp(T[i].*s_alias, x, strlen(x)) == 0) {
-			T[i].display_student_sts(pos);
-			//gra.miscbox();
-			pos = pos + 6;
+			T[i].slist();
 			f = 1;
 		}
 	}
@@ -671,12 +663,8 @@ int AlgorithmStudent::binary_search_student(student* T, int n, char x[50], bool 
 	while (right < n && (strncmp(T[right].*s_alias, x, strlen(x)) == 0))
 		++right;
 
-	int pos = 6;										//For display formatting;
 	for (int i = left+1;i < right;++i)					//display all occurrences;
-	{
-			T[i].display_student_sts(pos);
-			pos = pos + 6;
-	}
+			T[i].slist();
 	return 0;											//success;
 }
 
