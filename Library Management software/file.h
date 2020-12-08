@@ -19,7 +19,6 @@ public:
 	void modify_std();
 	void delete_std();
 	void delete_book();
-	void sort_std();
 
 	void list_book(int, bool, bool, int);
 	void list_student(int, bool, bool, int);

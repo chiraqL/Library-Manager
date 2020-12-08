@@ -8,7 +8,6 @@ public:
 	char roll[50];
 public:
 	void add_student();
-	void display_student_sts(int);
 	void slist();
 	void modify_student();
 	char* returnstudent_roll();

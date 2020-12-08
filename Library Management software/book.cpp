@@ -17,22 +17,7 @@ void book::display_book() {
 
 }
 
-void book::display_book_bk(int pos)
-{
-	//system("CLS");
-	//u.setxy(47, pos);//was 6
-	//cout << " Book no.: " << setw(2) << book_no << setw(2) << endl;
-	//u.setxy(47, pos + 2);//8
-	//cout << "Book Name: " << setw(2) << book_name << setw(2) << endl;
-	//u.setxy(47, pos + 4);//10
-	//cout << "Author Name" << setw(2) << setw(2) << authorname;
-	//u.setxy(47, pos+6);
-	//cout << " Publisher: " << setw(2) << publication_name;
-	//u.setxy(47, pos+8);
-	//cout << " Quantity: " << setw(2) << quantity;
 
-	blist();
-}
 
 void book::add_book() {
 
@@ -44,18 +29,15 @@ void book::add_book() {
 	u.setxy(47, 7);
 	cout << "Enter Book's Name: " << setw(2) << endl;
 	u.setxy(47, 8);
-	//cin >> book_name;
 	cin.getline(book_name, 50);
 	u.setxy(47, 9);
 	cout << "Enter Author's Name:" << setw(2) << endl;
 	u.setxy(47, 10);
 	cin.getline(authorname, 50);
-	//cin >> authorname;
 	u.setxy(47, 11);
 	cout << "Enter Publication Name:" << setw(2) << endl;
 	u.setxy(47, 12);
 	cin.getline(publication_name, 50);
-	//cin >> publication_name;
 	u.setxy(47, 13);
 	cout << "Enter Book's quantity:" << setw(2) << endl;
 	u.setxy(47, 14);

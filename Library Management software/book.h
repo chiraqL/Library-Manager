@@ -12,12 +12,11 @@ public:
 	int price;
 	char book_name[50];
 	void display_book();
-	void display_book_bk(int);
 	void add_book();
 	void modifybook();
 	void blist();
 	char* returnbook_no();
-	char *returnbook_name();
+	char* returnbook_name();
 
 	void copy_book(book&);
 };
