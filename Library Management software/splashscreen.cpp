@@ -2,13 +2,13 @@
 tools t;
 graphics G;
 
-//Loading graphikshy
+//Loading graphics
 void loading::load() {
 	t.setxy(40, 5);
 	t.Color(2);
 	cout << "Please wait! while the program loads.";
 	t.setxy(0, 6);
-	t.displayhorizontal(120, 254);
+	t.displayhorizontal(120, 254);		// (number of character to be printed, ASCII value of the character)
 	t.setxy(0, 25);
 	t.displayhorizontal(120, 254);
 	t.setxy(53, 11);

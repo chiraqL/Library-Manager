@@ -61,7 +61,8 @@ float AlgorithmBook::list_book_bubblesort(book* T, int n, bool& order, bool& typ
 	for (int i = 0; i < n - 1; i++)
 	{
 		for (int j = 0; j < n - i - 1; j++)
-		{
+		{	
+			// If (j < j + 1 ) for descending
 			if (type ? (order ? (T[j].*i_alias < T[j + 1].*i_alias) : (T[j].*i_alias > T[j + 1].*i_alias)) : (order ? (_strcmpi(T[j].*s_alias, T[j + 1].*s_alias) < 0) : (_strcmpi(T[j].*s_alias, T[j + 1].*s_alias) > 0)))
 				swap(T[j], T[j + 1]);
 		}
@@ -79,7 +80,7 @@ float AlgorithmBook::list_book_selectionsort(book* T, int n, bool& order, bool& 
 	{
 		min_idx = i;
 		for (j = i + 1; j < n; j++)
-			//if (order? (T[j].price > T[min_idx].price) : (T[j].price < T[min_idx].price))
+			//if (j > min_element) swap j and i;
 			if (type ? (order ? (T[j].*i_alias > T[min_idx].*i_alias) : (T[j].*i_alias < T[min_idx].*i_alias)) : (order ? (_strcmpi(T[j].*s_alias, T[min_idx].*s_alias) > 0) : (_strcmpi(T[j].*s_alias, T[min_idx].*s_alias) < 0)))
 				min_idx = j;
 		swap(T[min_idx], T[i]);

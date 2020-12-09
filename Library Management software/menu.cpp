@@ -29,7 +29,8 @@ void studentmenu::menu() {
 
 	switch (n) {
 	case 1: {
-		sort_menu.sort_book_menu();
+		sort_menu.sort_book_menu();			// Criterias for sorting ; Sort by, Sort order, Sorting algorithms
+		// 1-> Price, 4 -> Quantity and others are strings
 		bool type = (sort_menu.sortby == 1 || sort_menu.sortby == 4) ? 1 : 0;				//0 for string; 1 for int
 		if ((sort_menu.order == 0 || sort_menu.order == 1) && (sort_menu.sorting_algo >= 1 && sort_menu.sorting_algo <= 7) && (sort_menu.sortby >= 1 && sort_menu.sortby <= 5))
 			f1.list_book(sort_menu.sorting_algo, sort_menu.order, type, sort_menu.sortby);

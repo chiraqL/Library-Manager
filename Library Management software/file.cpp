@@ -305,7 +305,7 @@ void file::issue_book() {
 						stud.addtoken();
 						stud.gettokenbookno(bk.returnbook_no());
 						int pos = (-1) * sizeof(student);
-						fp.seekp(pos, ios::cur);
+						fp.seekp(pos, ios::cur);		
 						fp.write(reinterpret_cast<char*>(&stud), sizeof(student));
 						fp.clear();
 						fp.seekg(0);
